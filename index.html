@@ -600,6 +600,16 @@
         <td>Age, Gender, Profession, and Studying/Working state changes should update consistently in both directions (Studying ↔ Working) and reflect correctly across related pages (including flat homepage). Studying-specific value edits should also persist after save.</td>
         <td>1) Open Roommate Edit Profile. 2) Change Studying -> Working and save (confirm update). 3) Change Working -> Studying and save. 4) Verify status and related studying fields update and persist correctly everywhere.</td>
       </tr>
+      <tr>
+        <td>
+          <img src="quicktime_bug_050.png" alt="Roommate profile date range to permanent not syncing to flat homepage" />
+        </td>
+        <td>BUG-050</td>
+        <td>High</td>
+        <td>In Roommate Edit Profile, changing from date range (from/until) to Permanent does not update on the flat homepage.</td>
+        <td>When user switches availability from date range to Permanent and saves, flat homepage should reflect Permanent status immediately and consistently.</td>
+        <td>1) Open Roommate Edit Profile. 2) Change from date-range to Permanent and save. 3) Open flat homepage. 4) Verify availability is updated to Permanent.</td>
+      </tr>
     </tbody>
   </table>
 </body>
