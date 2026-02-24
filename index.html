@@ -657,6 +657,19 @@
         </td>
         <td>1) Trigger scenario A: flat cancels whole viewing. 2) Verify user can select new viewing from this screen. 3) Trigger scenario B: flat uninvites mate from casting. 4) Verify only delete option is shown. 5) Verify delete moves flat to rejection tab.</td>
       </tr>
+      <tr>
+        <td>General (no screenshot)</td>
+        <td>BUG-055</td>
+        <td>High</td>
+        <td>Deletion behavior across mate/flat relations is inconsistent and needs explicit rules to avoid data-loss or wrong state transitions.</td>
+        <td>
+          Apply these deletion rules:
+          1) Deleting a flat from mate side should always mean moving that flat to rejection list (not hard delete).
+          2) If flat deletes a mate and flat is still in mate's liked list, move mate relation to rejection list.
+          3) If flat is already in mate's rejection list, mate relation can be fully deleted.
+        </td>
+        <td>1) Test deletion from mate side and verify flat goes to rejection list. 2) Test flat deleting mate while flat is in liked list and verify move to rejection. 3) Test flat deleting mate while flat is already rejected and verify full deletion.</td>
+      </tr>
     </tbody>
   </table>
 </body>
