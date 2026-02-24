@@ -700,6 +700,21 @@
         <td>Do not auto-preselect a casting in this recovery flow. Require explicit user selection of a casting after cancellation to avoid wrong assignment.</td>
         <td>1) Cancel an existing casting as mate. 2) Open flat card and start choosing a new casting. 3) Verify no casting is preselected by default. 4) Confirm selected casting and verify Upcoming Tasks shows the correct one.</td>
       </tr>
+      <tr>
+        <td>
+          <img src="quicktime_bug_059.png" alt="Completed casting detail should use status colors for sent accepted rejected offers" />
+        </td>
+        <td>BUG-059</td>
+        <td>Low</td>
+        <td>In flat casting detail completed view, offer statuses are not visually distinguished with the expected color coding.</td>
+        <td>
+          Apply status colors:
+          1) Offer sent by flat -> orange
+          2) Mate accepted -> green
+          3) Mate rejected -> red
+        </td>
+        <td>1) Open flat casting detail (completed) view. 2) Trigger/inspect each offer state (sent, accepted, rejected). 3) Verify colors map correctly: orange, green, red.</td>
+      </tr>
     </tbody>
   </table>
 </body>
