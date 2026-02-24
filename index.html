@@ -739,6 +739,14 @@
         <td>Offer-received card should open the correct profile/details view and allow normal actions. Review/reset-related state handling and validate end-to-end post-reset flows.</td>
         <td>1) Reset account and start a new search. 2) Send offer to mate after casting. 3) Open offer-received card. 4) Verify profile/details render and accept/reject actions are available (no black screen).</td>
       </tr>
+      <tr>
+        <td>General (no screenshot)</td>
+        <td>BUG-063</td>
+        <td>High</td>
+        <td>After resetting flat and creating new mate profiles, choosing a new casting date can show "no spots available for this casting date" even when there are no participants yet.</td>
+        <td>Reset flow should fully clear previous casting occupancy/state. In a fresh post-reset cycle, available casting dates should not show "no spots available" unless capacity is actually reached.</td>
+        <td>1) Reset flat/account and start a new search cycle. 2) Create/use new mate profiles. 3) Click choose new casting date. 4) Verify available dates do not incorrectly show no-spots error when no participants exist.</td>
+      </tr>
     </tbody>
   </table>
 </body>
