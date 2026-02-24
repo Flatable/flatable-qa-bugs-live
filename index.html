@@ -715,6 +715,14 @@
         </td>
         <td>1) Open flat casting detail (completed) view. 2) Trigger/inspect each offer state (sent, accepted, rejected). 3) Verify colors map correctly: orange, green, red.</td>
       </tr>
+      <tr>
+        <td>General (no screenshot)</td>
+        <td>BUG-060</td>
+        <td>High</td>
+        <td>After flat successfully found roommates and reset the flat count/start new search (including onboarding/reboarding completion), an old mate can still appear on flat home page.</td>
+        <td>When flat resets and starts a new search cycle, previous mate associations from the prior cycle should be cleared and not shown on flat home page.</td>
+        <td>1) Complete flow where flat finds roommates. 2) Reset flat count/start new search and finish onboarding/reboarding. 3) Open flat home page. 4) Verify previous mates are not shown.</td>
+      </tr>
     </tbody>
   </table>
 </body>
