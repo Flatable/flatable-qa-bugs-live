@@ -802,6 +802,26 @@
         <td>Change the blocked-list action button label to "Unblock".</td>
         <td>1) Open blocked list. 2) View a blocked flat card. 3) Verify action button label is exactly "Unblock".</td>
       </tr>
+      <tr>
+        <td>
+          <img src="quicktime_bug_069.png" alt="Donation page 50 CHF option does not work" />
+        </td>
+        <td>BUG-069</td>
+        <td>High</td>
+        <td>On the donation page, selecting/using the 50 CHF option does not work as expected.</td>
+        <td>Fix donation flow so the 50 CHF option works reliably end-to-end.</td>
+        <td>1) Open donation page. 2) Select 50 CHF option. 3) Complete donation action. 4) Verify payment flow proceeds successfully.</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="quicktime_bug_069.png" alt="Thank-you pop-up missing after donation flow" />
+        </td>
+        <td>BUG-070</td>
+        <td>Medium</td>
+        <td>Thank-you pop-up is missing after donation flow; this was implemented previously and is now no longer shown.</td>
+        <td>Restore the post-donation thank-you pop-up so it appears after a successful donation.</td>
+        <td>1) Complete a successful donation. 2) Verify thank-you pop-up appears immediately after success. 3) Confirm behavior matches prior implementation.</td>
+      </tr>
     </tbody>
   </table>
 </body>
