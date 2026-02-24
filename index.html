@@ -610,6 +610,16 @@
         <td>When user switches availability from date range to Permanent and saves, flat homepage should reflect Permanent status immediately and consistently.</td>
         <td>1) Open Roommate Edit Profile. 2) Change from date-range to Permanent and save. 3) Open flat homepage. 4) Verify availability is updated to Permanent.</td>
       </tr>
+      <tr>
+        <td>
+          <img src="quicktime_bug_051.png" alt="Replacing third roommate image moves it to last position" />
+        </td>
+        <td>BUG-051</td>
+        <td>High</td>
+        <td>When replacing the 3rd image in Roommate Edit Profile, the new image is shown at the last position on WG homepage. After leaving and returning to roommate images, the replaced image is still moved to last position.</td>
+        <td>Replacing an image should preserve its original slot/index. If user replaces the 3rd image, the new image must remain in the 3rd position everywhere (edit page and WG homepage).</td>
+        <td>1) Open Roommate Edit Profile images. 2) Replace 3rd image with a new one and save. 3) Check WG homepage image order. 4) Navigate away and back to roommate images. 5) Verify replaced image remains in 3rd position.</td>
+      </tr>
     </tbody>
   </table>
 </body>
