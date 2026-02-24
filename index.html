@@ -755,6 +755,14 @@
         <td>Casting date lookup should be stable and deterministic. Mate should always be able to register when valid casting dates exist; no intermittent "not found" errors.</td>
         <td>1) Open mate viewing page repeatedly across sessions/accounts. 2) Attempt to register for viewing dates. 3) Verify no intermittent "casting date not found in WG setup" error and registration remains available when dates exist.</td>
       </tr>
+      <tr>
+        <td>General (no screenshot)</td>
+        <td>BUG-065</td>
+        <td>High</td>
+        <td>Resetting accounts can leave app in unstable state with multiple random malfunctions on both flat and mate sides; after fully closing and reopening app, many issues temporarily disappear.</td>
+        <td>Reset flow should fully clear and reinitialize state consistently (server + local cache/session) so app behaves correctly without requiring app restart. Validate post-reset flows on both sides, including after logout/login and with newly created profiles.</td>
+        <td>1) Perform account reset and start fresh flow. 2) Test key features on both flat and mate sides. 3) Note inconsistent failures. 4) Fully close/reopen app and retest. 5) Verify same flows work without reset-induced corruption.</td>
+      </tr>
     </tbody>
   </table>
 </body>
