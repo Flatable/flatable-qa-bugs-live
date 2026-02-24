@@ -938,6 +938,16 @@
         <td>If multiple flat members liked the profile, show all relevant likers (or a clear aggregated indicator/count with access to full list), not just one.</td>
         <td>1) Use test data where 2+ flat members like the same profile. 2) Open flat home screen/profile view. 3) Verify all likers are represented correctly (or an accurate count + expandable list).</td>
       </tr>
+      <tr>
+        <td>
+          <img src="quicktime_bug_084.png" alt="Flatmate edit profile min and distance fields not populated while WG account has values" />
+        </td>
+        <td>BUG-084</td>
+        <td>High</td>
+        <td>In flatmate account edit profile (flat side), min and distance fields are empty even though corresponding WG account profile has values.</td>
+        <td>Ensure min and distance values are loaded/synced correctly in flatmate edit profile when WG account already has stored values.</td>
+        <td>1) Set min and distance values in WG account profile. 2) Open flatmate account edit profile. 3) Verify same values are prefilled (not empty). 4) Save and reopen to confirm persistence/sync.</td>
+      </tr>
     </tbody>
   </table>
 </body>
