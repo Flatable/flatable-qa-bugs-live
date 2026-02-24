@@ -490,26 +490,29 @@
       </tr>
       <tr>
         <td>
-          <img src="quicktime_bug_039.png" alt="Roommate filter sliders should match flat profile slider design and behavior" />
+          <img src="quicktime_bug_039_new.png" alt="Roommate filter sliders do not reset correctly and need consistent design" />
         </td>
         <td>BUG-039</td>
         <td>Medium</td>
-        <td>Roommate filtering sliders are not using the same layout/behavior pattern as the flat-profile age-range slider.</td>
+        <td>On roommate filter page, after setting slider values and applying filters, Reset Filter does not properly reset all sliders/labels (especially ideal room size, where slider position may stay changed).</td>
         <td>
-          For these four sliders in roommate filtering, use the exact same design/layout and interaction model as the flat-profile age-range slider:
+          Ensure filter reset and validation behavior is correct, and standardize slider design with the flat-profile age-range slider:
           1) Price range
           2) Ideal room size
           3) How many people (roommate preferences)
           4) Roommate age preferences
-          Show min/max slider bounds consistently, and only show selected left/right values after the user actively changes the slider.
+          Requirements:
+          - Reset Filter must reset all slider positions and displayed values.
+          - If user applies with no values selected, show validation error (e.g., "Please select at least one filter before applying.").
+          - Use same slider design/interaction as flat-profile age-range slider.
         </td>
-        <td>1) Open roommate filtering. 2) Check all four sliders listed. 3) Compare against flat-profile age-range slider style and behavior. 4) Verify min/max bounds and selected-value behavior are identical.</td>
+        <td>1) Open roommate filtering. 2) Set slider values and apply. 3) Tap Reset Filter and verify all values/positions reset. 4) Apply with no values and verify validation error. 5) Confirm all four sliders match flat-profile age-range slider design/behavior.</td>
       </tr>
       <tr>
         <td>
           <img src="quicktime_bug_040.png" alt="Roommate improve your matches tab should match flat design" />
         </td>
-        <td>BUG-040</td>
+        <td>BUG-041</td>
         <td>Medium</td>
         <td>The Roommate "Improve your matches" tab design/layout is inconsistent with the Flat version.</td>
         <td>Copy/adopt the exact same design layout and visual treatment from the Flat "Improve your matches" tab for the Roommate tab as well.</td>
@@ -517,7 +520,7 @@
       </tr>
       <tr>
         <td>General (no screenshot)</td>
-        <td>BUG-041</td>
+        <td>BUG-042</td>
         <td>Low</td>
         <td>The top bar containing "Filter" and "Improve your matches" is too tall and consumes too much vertical space.</td>
         <td>Reduce the height of this bar so users can see more filtering options/content without extra scrolling.</td>
@@ -527,7 +530,7 @@
         <td>
           <img src="quicktime_bug_042.png" alt="Flat filter apply without values shows applied state and preselected until" />
         </td>
-        <td>BUG-042</td>
+        <td>BUG-043</td>
         <td>Medium</td>
         <td>On flat filter page, tapping Apply without setting any filters still shows applied state (e.g., "0 mates available"), and "Until" appears preselected unexpectedly.</td>
         <td>Do not preselect any filter values by default (including "Until"). If user taps Apply with no selected values, show a clear validation message instead of applied state. Suggested message: "Please select at least one filter before applying."</td>
@@ -537,7 +540,7 @@
         <td>
           <img src="quicktime_bug_043.png" alt="Bottom button text should be Apply Filter with capital F" />
         </td>
-        <td>BUG-043</td>
+        <td>BUG-044</td>
         <td>Low</td>
         <td>Bottom button text is not consistent with roommate filter page wording/capitalization.</td>
         <td>Change button label to "Apply Filter" (capital F) so wording is consistent with the roommate filter page.</td>
@@ -547,7 +550,7 @@
         <td>
           <img src="quicktime_bug_044.png" alt="Transition between Filter and Improve your matches tabs should match roommate filter page" />
         </td>
-        <td>BUG-044</td>
+        <td>BUG-045</td>
         <td>Low</td>
         <td>Transition behavior from Filter tab to Improve your matches tab is not consistent with the roommate filters page.</td>
         <td>Make the tab transition animation/interaction the same as on the roommate filters page so behavior is consistent.</td>
