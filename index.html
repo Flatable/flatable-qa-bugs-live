@@ -761,9 +761,9 @@
         <td>General (no screenshot)</td>
         <td>BUG-065</td>
         <td>High</td>
-        <td>Resetting accounts can leave app in unstable state with multiple random malfunctions on both flat and mate sides; after fully closing and reopening app, many issues temporarily disappear.</td>
-        <td>Reset flow should fully clear and reinitialize state consistently (server + local cache/session) so app behaves correctly without requiring app restart. Validate post-reset flows on both sides, including after logout/login and with newly created profiles.</td>
-        <td>1) Perform account reset and start fresh flow. 2) Test key features on both flat and mate sides. 3) Note inconsistent failures. 4) Fully close/reopen app and retest. 5) Verify same flows work without reset-induced corruption.</td>
+        <td>Resetting accounts can leave app in unstable state with multiple random malfunctions on both flat and mate sides; after fully closing and reopening app, many issues temporarily disappear. Also, history is not fully reset: liked/rejected/saved lists can persist unexpectedly.</td>
+        <td>Reset flow should fully clear and reinitialize state consistently (server + local cache/session), including complete reset of liked/rejected/saved history lists, so app behaves correctly without requiring app restart. Validate post-reset flows on both sides, including after logout/login and with newly created profiles.</td>
+        <td>1) Perform account reset and start fresh flow. 2) Check liked/rejected/saved lists and verify they are reset/empty as expected. 3) Test key features on both flat and mate sides. 4) Note inconsistent failures. 5) Fully close/reopen app and retest. 6) Verify same flows work without reset-induced corruption.</td>
       </tr>
       <tr>
         <td>
