@@ -1022,6 +1022,14 @@
         <td>Change the button label to "Unblock" in mate profile view opened from flat blocked list.</td>
         <td>1) Open flat blocked list. 2) Open mate profile view from a blocked entry. 3) Verify action button label is exactly "Unblock".</td>
       </tr>
+      <tr>
+        <td>General (no screenshot)</td>
+        <td>BUG-093</td>
+        <td>High</td>
+        <td>Permission issue: currently all flat members can add new roommates.</td>
+        <td>Restrict "add new roommate" action to admin only. Non-admin flat members should not be able to access or execute this action.</td>
+        <td>1) Login as non-admin flat member and verify add-roommate action is hidden/disabled and blocked server-side. 2) Login as admin and verify add-roommate action works normally.</td>
+      </tr>
     </tbody>
   </table>
 </body>
