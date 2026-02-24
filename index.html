@@ -632,6 +632,16 @@
         <td>For flatmate users, on tapping "Set viewing dates" or "+" button, show snackbar: "Only the admin of your flat is able to do this action." and do not navigate to Add Viewings page.</td>
         <td>1) Log in as flatmate (non-admin). 2) Tap "Set viewing dates". 3) Tap "+" button. 4) Verify snackbar appears with exact text and no redirect occurs.</td>
       </tr>
+      <tr>
+        <td>
+          <img src="quicktime_bug_053.png" alt="Completed casting gradient should cover lottie and participant area" />
+        </td>
+        <td>BUG-053</td>
+        <td>Medium</td>
+        <td>On completed casting view, lottie/participant content can appear behind the gradient overlay area (especially when scrolling participants), unlike the upcoming casting view behavior.</td>
+        <td>Move the gradient up so it covers the area properly and prevents content from popping behind it. Keep completed casting view visually consistent with upcoming casting view.</td>
+        <td>1) Open completed casting view. 2) Observe lottie and participant list area. 3) Scroll participants upward. 4) Verify content does not appear behind gradient and coverage matches expected layout.</td>
+      </tr>
     </tbody>
   </table>
 </body>
