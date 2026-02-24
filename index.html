@@ -701,10 +701,18 @@
         <td>1) Cancel an existing casting as mate. 2) Open flat card and start choosing a new casting. 3) Verify no casting is preselected by default. 4) Confirm selected casting and verify Upcoming Tasks shows the correct one.</td>
       </tr>
       <tr>
+        <td>General (no screenshot)</td>
+        <td>BUG-059</td>
+        <td>High</td>
+        <td>When mate tries to select a new casting date, one casting can be auto-preselected again (observed after account reset), and confirming without intentional choice can lead to "WG casting not found".</td>
+        <td>Do not preselect any casting by default in the "select new casting date" flow. Require explicit user selection before confirm to avoid wrong or missing casting assignment.</td>
+        <td>1) (After reset scenario) Open flow to select new casting date. 2) Check if any casting is preselected automatically. 3) Try confirm flow and verify no "WG casting not found" due to hidden preselection. 4) Ensure user must explicitly select casting.</td>
+      </tr>
+      <tr>
         <td>
           <img src="quicktime_bug_059.png" alt="Completed casting detail should use status colors for sent accepted rejected offers" />
         </td>
-        <td>BUG-059</td>
+        <td>BUG-060</td>
         <td>Low</td>
         <td>In flat casting detail completed view, offer statuses are not visually distinguished with the expected color coding.</td>
         <td>
@@ -717,7 +725,7 @@
       </tr>
       <tr>
         <td>General (no screenshot)</td>
-        <td>BUG-060</td>
+        <td>BUG-061</td>
         <td>High</td>
         <td>After flat successfully found roommates and reset the flat count/start new search (including onboarding/reboarding completion), an old mate can still appear on flat home page.</td>
         <td>When flat resets and starts a new search cycle, previous mate associations from the prior cycle should be cleared and not shown on flat home page.</td>
