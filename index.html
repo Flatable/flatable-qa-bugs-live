@@ -958,6 +958,14 @@
         <td>On save, automatically remove empty profession entries and render a clean comma-separated list with no blank values/separators.</td>
         <td>1) Add multiple profession entries (e.g., Job 1, Job 2, Job 3). 2) Delete middle entry and save. 3) Open mate homepage. 4) Verify output is cleaned (e.g., "Job 1, Job 3"), with no empty slot/comma gap.</td>
       </tr>
+      <tr>
+        <td>General (no screenshot)</td>
+        <td>BUG-086</td>
+        <td>High</td>
+        <td>Image replacement order is incorrect in roommate images and flat images editing (same issue as mate edit profile): when user replaces an image in a specific slot, the replaced image is appended at the end instead of staying in the selected position.</td>
+        <td>Preserve user-defined image order when replacing images. Replacing an image in slot N must keep the new image in slot N (no automatic append-to-end behavior).</td>
+        <td>1) Open roommate images edit flow and flat images edit flow. 2) Replace an image in the middle slot/order. 3) Save changes. 4) Verify replaced image remains in the same slot/index chosen by user and overall order is preserved.</td>
+      </tr>
     </tbody>
   </table>
 </body>
