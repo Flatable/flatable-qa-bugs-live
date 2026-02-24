@@ -765,6 +765,23 @@
         <td>Reset flow should fully clear and reinitialize state consistently (server + local cache/session) so app behaves correctly without requiring app restart. Validate post-reset flows on both sides, including after logout/login and with newly created profiles.</td>
         <td>1) Perform account reset and start fresh flow. 2) Test key features on both flat and mate sides. 3) Note inconsistent failures. 4) Fully close/reopen app and retest. 5) Verify same flows work without reset-induced corruption.</td>
       </tr>
+      <tr>
+        <td>
+          <img src="quicktime_bug_066.png" alt="Shared profile-card issues across saved liked rejected and casting full-profile views" />
+        </td>
+        <td>BUG-066</td>
+        <td>High</td>
+        <td>Same profile-card rendering issues appear across multiple linked views (saved/liked/rejected lists on flat profile and see-full-profile from my mate casting page).</td>
+        <td>
+          Apply fixes consistently across all affected views:
+          1) If from-date exists and until-date is empty, handle display correctly (do not show broken/empty until state).
+          2) Remove unnecessary comma formatting in from-date text.
+          3) Move address block lower (closer to bottom), make it scrollable, show only on first image, hide on next images.
+          4) In roommate-details icon area for WG account, show correct WG user icon (not flat title image).
+          5) Fix roommates count so it does not incorrectly show zero.
+        </td>
+        <td>1) Open each affected view (saved, liked, rejected, and casting full profile). 2) Verify date formatting/visibility behavior. 3) Verify address placement/scroll/first-image-only visibility. 4) Verify correct icon type and roommates count in all views.</td>
+      </tr>
     </tbody>
   </table>
 </body>
