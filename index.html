@@ -898,6 +898,16 @@
         <td>Verify and ensure reporting flow is connected to admin panel so submitted reports are visible and actionable by admins.</td>
         <td>1) Submit a test report from the app. 2) Open admin panel. 3) Verify report appears with correct metadata/content and can be processed.</td>
       </tr>
+      <tr>
+        <td>
+          <img src="quicktime_bug_080.png" alt="Unexpected top-right placeholder shown without a like" />
+        </td>
+        <td>BUG-080</td>
+        <td>Medium</td>
+        <td>A placeholder element/icon appears in the top-right corner even when no one has liked the profile from the flat side.</td>
+        <td>Remove/hide the top-right placeholder unless a real like state exists; nothing should be shown there when there is no like.</td>
+        <td>1) Open profile/card state with zero likes from flat side. 2) Check top-right corner. 3) Verify no placeholder is visible unless an actual like state is present.</td>
+      </tr>
     </tbody>
   </table>
 </body>
