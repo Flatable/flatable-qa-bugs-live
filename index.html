@@ -996,6 +996,14 @@
         <td>Remove this message from the flow/state after deleting the final liked-list entry.</td>
         <td>1) Open liked list with exactly one remaining mate. 2) Remove that last mate. 3) Verify no unnecessary message is displayed afterward.</td>
       </tr>
+      <tr>
+        <td>General (no screenshot)</td>
+        <td>BUG-090</td>
+        <td>Medium</td>
+        <td>On mate viewing page, Confirm button is still visible even when there is no upcoming casting.</td>
+        <td>Hide/remove Confirm button when no upcoming casting exists. Button should appear only when a valid upcoming casting is available for confirmation.</td>
+        <td>1) Open mate viewing page in a state with no upcoming casting. 2) Verify Confirm button is not shown. 3) Switch to state with upcoming casting and verify button appears only then.</td>
+      </tr>
     </tbody>
   </table>
 </body>
