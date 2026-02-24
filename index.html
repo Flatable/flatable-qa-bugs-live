@@ -1004,6 +1004,14 @@
         <td>Hide/remove Confirm button whenever confirmation is not possible. Button should appear only when a valid upcoming casting exists and spots are available.</td>
         <td>1) Open mate viewing page in a state with no upcoming casting and verify Confirm button is not shown. 2) Open state with upcoming casting but no spots available and verify Confirm button is not shown. 3) Open valid state (upcoming casting + available spots) and verify Confirm button appears.</td>
       </tr>
+      <tr>
+        <td>General (no screenshot)</td>
+        <td>BUG-091</td>
+        <td>Medium</td>
+        <td>Ordering/prioritization in individual viewing tabs is not aligned with desired UX for Select Date, Upcoming, and Completed states.</td>
+        <td>Apply explicit ordering rules: Select Date tab order should be 1) "choose viewing date" at top, 2) "spots are full", 3) "no upcoming viewings". Upcoming tab should be sorted by date ascending (closest to today at top). Completed tab should be ordered by status priority: 1) offers (green), 2) rejected (red), 3) waiting.</td>
+        <td>1) Open Select Date tab with mixed item types and verify ordering: choose viewing date -> spots full -> no upcoming viewings. 2) Open Upcoming tab with multiple dates and verify nearest date is first. 3) Open Completed tab with mixed statuses and verify order: green offers first, red rejected second, waiting last.</td>
+      </tr>
     </tbody>
   </table>
 </body>
