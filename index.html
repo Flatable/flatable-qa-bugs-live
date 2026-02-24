@@ -948,6 +948,16 @@
         <td>Keep WG account and flatmate-side edit profile values in a consistent sync model: existing WG values should prefill correctly, and edits from one side must not incorrectly overwrite/desync the other side unless explicitly intended by product logic.</td>
         <td>1) Set min/distance values in WG account edit profile. 2) Open flatmate-side edit profile and verify values are prefilled. 3) Change values on flatmate-side edit profile and save. 4) Reopen WG account edit profile and verify values remain correctly synced per intended logic (no unintended overwrite/desync). 5) Repeat in reverse direction.</td>
       </tr>
+      <tr>
+        <td>
+          <img src="quicktime_bug_085.png" alt="Profession list shows empty entry after deleting one field" />
+        </td>
+        <td>BUG-085</td>
+        <td>Medium</td>
+        <td>After deleting one profession field and saving, mate homepage can show malformed text with empty entry separators (example: "Job 1, , Job 3").</td>
+        <td>On save, automatically remove empty profession entries and render a clean comma-separated list with no blank values/separators.</td>
+        <td>1) Add multiple profession entries (e.g., Job 1, Job 2, Job 3). 2) Delete middle entry and save. 3) Open mate homepage. 4) Verify output is cleaned (e.g., "Job 1, Job 3"), with no empty slot/comma gap.</td>
+      </tr>
     </tbody>
   </table>
 </body>
