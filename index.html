@@ -982,9 +982,9 @@
         </td>
         <td>BUG-088</td>
         <td>High</td>
-        <td>In profile cards, the Job field shows generic text ("employment") instead of the user's actual profession/major value. Observed in saved list; likely same issue in liked, rejected, and blocked lists.</td>
-        <td>Render the actual stored profession/major value in the Job field (not generic placeholder text) consistently across saved, liked, rejected, and blocked list views.</td>
-        <td>1) Open saved list profile cards and verify Job field shows real profession/major value. 2) Repeat in liked and rejected lists. 3) Validate blocked list too. 4) Confirm no card shows generic "employment" when profile has a concrete value.</td>
+        <td>In profile cards, the Job field is broken: in saved list it can show generic text ("employment") instead of the actual profession/major value, and in liked list the profession/major value is not shown at all. Likely same issue may affect rejected and blocked lists.</td>
+        <td>Render the actual stored profession/major value in the Job field consistently across saved, liked, rejected, and blocked list views. Do not show generic placeholder text, and do not leave the value empty when profile data exists.</td>
+        <td>1) Open saved list profile cards and verify Job field shows real profession/major value (not "employment"). 2) Open liked list and verify profession/major value is visible (not missing). 3) Repeat in rejected list. 4) Validate blocked list too. 5) Confirm all list types consistently show the same correct data source.</td>
       </tr>
     </tbody>
   </table>
