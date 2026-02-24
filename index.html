@@ -667,8 +667,10 @@
           1) Deleting a flat from mate side should always mean moving that flat to rejection list (not hard delete).
           2) If flat deletes a mate and flat is still in mate's liked list, move mate relation to rejection list.
           3) If flat is already in mate's rejection list, mate relation can be fully deleted.
+          4) If mate declines/deletes flat after casting is completed (before flat sends offer/reject), move flat to mate rejection list, show flat-side status that roommate declined, and allow flat to delete roommate relation.
+          5) In that scenario, because flat is already in rejection state, final delete can be a true hard delete of mate relation.
         </td>
-        <td>1) Test deletion from mate side and verify flat goes to rejection list. 2) Test flat deleting mate while flat is in liked list and verify move to rejection. 3) Test flat deleting mate while flat is already rejected and verify full deletion.</td>
+        <td>1) Test deletion from mate side and verify flat goes to rejection list. 2) Test flat deleting mate while flat is in liked list and verify move to rejection. 3) Test flat deleting mate while flat is already rejected and verify full deletion. 4) Test post-casting mate-decline-before-offer flow and verify rejection + flat-side declined status + allowed final delete behavior.</td>
       </tr>
       <tr>
         <td>
