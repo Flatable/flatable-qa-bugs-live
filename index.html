@@ -562,9 +562,19 @@
       </tr>
       <tr>
         <td>
-          <img src="quicktime_bug_044.png" alt="Transition between Filter and Improve your matches tabs should match roommate filter page" />
+          <img src="quicktime_bug_042.png" alt="Flat filter returns zero despite known matching mates and potential hidden preselection" />
         </td>
         <td>BUG-046</td>
+        <td>High</td>
+        <td>Flat filter can return "0 mates available" even when known matching mates exist (e.g., correct age range). "Until" may appear preselected, suggesting hidden/default selections are interfering.</td>
+        <td>Review the full flat filter logic and verify each filter option individually. Ensure no hidden or unintended preselected values. If user applies without selecting filters, show validation error instead of applied results. Confirm matching data (e.g., age and amenities) returns expected results in next build.</td>
+        <td>1) Open flat filter page fresh. 2) Set known matching values (e.g., age range with existing matches). 3) Verify results are returned. 4) Check for unexpected default selections like "Until". 5) Apply with no values and verify validation error appears.</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="quicktime_bug_044.png" alt="Transition between Filter and Improve your matches tabs should match roommate filter page" />
+        </td>
+        <td>BUG-047</td>
         <td>Low</td>
         <td>Transition behavior from Filter tab to Improve your matches tab is not consistent with the roommate filters page.</td>
         <td>Make the tab transition animation/interaction the same as on the roommate filters page so behavior is consistent.</td>
