@@ -523,6 +523,16 @@
         <td>Reduce the height of this bar so users can see more filtering options/content without extra scrolling.</td>
         <td>1) Open filtering page. 2) Compare visible content area before/after bar-height adjustment. 3) Verify more filter options are visible on screen.</td>
       </tr>
+      <tr>
+        <td>
+          <img src="quicktime_bug_042.png" alt="Flat filter apply without values shows applied state and preselected until" />
+        </td>
+        <td>BUG-042</td>
+        <td>Medium</td>
+        <td>On flat filter page, tapping Apply without setting any filters still shows applied state (e.g., "0 mates available"), and "Until" appears preselected unexpectedly.</td>
+        <td>Do not preselect any filter values by default (including "Until"). If user taps Apply with no selected values, show a clear validation message instead of applied state. Suggested message: "Please select at least one filter before applying."</td>
+        <td>1) Open flat filter page fresh. 2) Do not select any filter values. 3) Tap Apply. 4) Verify no applied-filter state appears, no default preselection exists, and validation message is shown.</td>
+      </tr>
     </tbody>
   </table>
 </body>
