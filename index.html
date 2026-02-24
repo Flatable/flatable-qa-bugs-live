@@ -858,6 +858,22 @@
         <td>When a new message arrives, automatically move that conversation to the top of the chat list and visibly show the latest message/new-message indication without requiring chat open.</td>
         <td>1) Open chat overview page. 2) Receive/send a new message from another account. 3) Verify that conversation moves to top automatically. 4) Verify latest message and new-message indication are visible directly in the chat list.</td>
       </tr>
+      <tr>
+        <td>General (no screenshot)</td>
+        <td>BUG-075</td>
+        <td>High</td>
+        <td>Chat sender avatars are mixed up: flatmate messages are showing the flat account icon instead of the actual sender icon. Currently, flat icon is reused incorrectly across different sender types.</td>
+        <td>Map message avatar strictly by real sender account: flatmate message -> flatmate icon, mate message -> mate icon, flat account message -> flat account icon. Do not reuse flat icon for other sender roles.</td>
+        <td>1) Open chats involving mate, flatmate, and flat account participants. 2) Send one message from each account type. 3) Verify each message bubble shows the correct sender avatar consistently.</td>
+      </tr>
+      <tr>
+        <td>General (no screenshot)</td>
+        <td>BUG-076</td>
+        <td>High</td>
+        <td>Mate account chat page is not live-updating: new messages only appear after leaving and reopening the chat. Flatmate/WG chats update live, so behavior is inconsistent.</td>
+        <td>Enable real-time updates on mate account chat page so incoming/outgoing messages appear instantly without manual refresh/navigation.</td>
+        <td>1) Open mate account chat screen. 2) Send/receive a message from another participant. 3) Verify new message appears immediately without closing/reopening chat. 4) Confirm behavior matches flatmate/WG live chat behavior.</td>
+      </tr>
     </tbody>
   </table>
 </body>
