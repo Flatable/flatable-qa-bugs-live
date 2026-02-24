@@ -622,6 +622,16 @@
         <td>Replacing an image should preserve its original slot/index. If user replaces the 3rd image, the new image must remain in the 3rd position everywhere (edit page and WG homepage).</td>
         <td>1) Open Roommate Edit Profile images. 2) Replace 3rd image with a new one and save. 3) Check WG homepage image order. 4) Navigate away and back to roommate images. 5) Verify replaced image remains in 3rd position.</td>
       </tr>
+      <tr>
+        <td>
+          <img src="quicktime_bug_052.png" alt="Flatmate should see admin-only snackbar on viewing date actions" />
+        </td>
+        <td>BUG-052</td>
+        <td>Medium</td>
+        <td>When flatmate clicks "Set viewing dates" (or the plus button), flow redirects to Add Viewings page instead of enforcing admin-only permission message.</td>
+        <td>For flatmate users, on tapping "Set viewing dates" or "+" button, show snackbar: "Only the admin of your flat is able to do this action." and do not navigate to Add Viewings page.</td>
+        <td>1) Log in as flatmate (non-admin). 2) Tap "Set viewing dates". 3) Tap "+" button. 4) Verify snackbar appears with exact text and no redirect occurs.</td>
+      </tr>
     </tbody>
   </table>
 </body>
