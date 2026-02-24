@@ -944,9 +944,9 @@
         </td>
         <td>BUG-084</td>
         <td>High</td>
-        <td>In flatmate account edit profile (flat side), min and distance fields are empty even though corresponding WG account profile has values.</td>
-        <td>Ensure min and distance values are loaded/synced correctly in flatmate edit profile when WG account already has stored values.</td>
-        <td>1) Set min and distance values in WG account profile. 2) Open flatmate account edit profile. 3) Verify same values are prefilled (not empty). 4) Save and reopen to confirm persistence/sync.</td>
+        <td>Cross-account profile sync is broken: in flatmate account edit profile (flat side), min and distance fields can be empty even though WG account has values; and when values are entered/edited on flatmate WG edit profile, they override WG account values and both profiles become out of sync.</td>
+        <td>Keep WG account and flatmate-side edit profile values in a consistent sync model: existing WG values should prefill correctly, and edits from one side must not incorrectly overwrite/desync the other side unless explicitly intended by product logic.</td>
+        <td>1) Set min/distance values in WG account edit profile. 2) Open flatmate-side edit profile and verify values are prefilled. 3) Change values on flatmate-side edit profile and save. 4) Reopen WG account edit profile and verify values remain correctly synced per intended logic (no unintended overwrite/desync). 5) Repeat in reverse direction.</td>
       </tr>
     </tbody>
   </table>
