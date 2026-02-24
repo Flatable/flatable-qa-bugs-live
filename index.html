@@ -928,6 +928,16 @@
         <td>Rename the last tab to "What I am looking for". Move the screen content slightly upward so the last section is fully visible and not obscured by the bottom gradient border.</td>
         <td>1) Open this screen with tabs. 2) Verify the last tab text is exactly "What I am looking for". 3) Scroll to bottom and verify final content is fully readable and not hidden behind gradient border.</td>
       </tr>
+      <tr>
+        <td>
+          <img src="quicktime_bug_083.png" alt="Flat home only shows one liker instead of multiple flat members" />
+        </td>
+        <td>BUG-083</td>
+        <td>High</td>
+        <td>On flat home screen/profile context, when more than one flat member has liked a profile, UI appears to show only one liker.</td>
+        <td>If multiple flat members liked the profile, show all relevant likers (or a clear aggregated indicator/count with access to full list), not just one.</td>
+        <td>1) Use test data where 2+ flat members like the same profile. 2) Open flat home screen/profile view. 3) Verify all likers are represented correctly (or an accurate count + expandable list).</td>
+      </tr>
     </tbody>
   </table>
 </body>
