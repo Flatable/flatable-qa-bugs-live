@@ -986,6 +986,16 @@
         <td>Render the actual stored profession/major value in the Job field consistently across saved, liked, rejected, and blocked list views. Do not show generic placeholder text, and do not leave the value empty when profile data exists.</td>
         <td>1) Open saved list profile cards and verify Job field shows real profession/major value (not "employment"). 2) Open liked list and verify profession/major value is visible (not missing). 3) Repeat in rejected list. 4) Validate blocked list too. 5) Confirm all list types consistently show the same correct data source.</td>
       </tr>
+      <tr>
+        <td>
+          <img src="quicktime_bug_089.png" alt="Message shown after removing last mate from liked list should be removed" />
+        </td>
+        <td>BUG-089</td>
+        <td>Medium</td>
+        <td>After removing the last mate from the liked list, an unnecessary message is shown.</td>
+        <td>Remove this message from the flow/state after deleting the final liked-list entry.</td>
+        <td>1) Open liked list with exactly one remaining mate. 2) Remove that last mate. 3) Verify no unnecessary message is displayed afterward.</td>
+      </tr>
     </tbody>
   </table>
 </body>
