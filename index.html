@@ -840,6 +840,14 @@
         <td>After successful offer acceptance, Chat action should deep-link directly to the specific mate-flat chat thread for that accepted offer.</td>
         <td>1) Accept a flat offer successfully. 2) Tap the Chat button from the success flow/state. 3) Verify app opens the exact mate-flat conversation thread, not the general chat overview page.</td>
       </tr>
+      <tr>
+        <td>General (no screenshot)</td>
+        <td>BUG-073</td>
+        <td>Medium</td>
+        <td>Contact Support ("Email us") flow is unclear/unverified: destination email, delivery status, and internal visibility of user messages are not confirmed.</td>
+        <td>Verify and document the full support-email flow: which inbox/address receives messages, whether sending works end-to-end, and where team can view incoming user contact requests.</td>
+        <td>1) Open Contact Support and trigger "Email us". 2) Send a test support message. 3) Confirm recipient inbox/address. 4) Confirm message delivery and where it is visible internally for support follow-up.</td>
+      </tr>
     </tbody>
   </table>
 </body>
