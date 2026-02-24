@@ -1046,6 +1046,14 @@
         <td>Define and implement a complete delete-function specification covering data scope, side effects, permissions, soft vs hard delete, recovery behavior, and cross-feature impacts before finalizing deletion flows.</td>
         <td>1) Document delete rules per entity/state (what is deleted vs retained). 2) Validate permissions and role-based constraints. 3) Validate cascades/references across lists, chats, casting, offers, and history. 4) Verify expected behavior for edge cases and recovery/audit requirements.</td>
       </tr>
+      <tr>
+        <td>General (no screenshot)</td>
+        <td>BUG-096</td>
+        <td>Medium (Edge Case)</td>
+        <td>Edge case missing on WG/flatmates homepage when threshold is already reached.</td>
+        <td>When threshold is reached, show a small "Matched" tag on the card and simplify bottom actions to only the "Like" button (proposed easiest fix).</td>
+        <td>1) Reach threshold state for a profile. 2) Open WG/flatmates homepage card. 3) Verify small "Matched" tag is visible. 4) Verify only "Like" button is shown at the bottom.</td>
+      </tr>
     </tbody>
   </table>
 </body>
