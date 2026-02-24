@@ -808,9 +808,9 @@
         </td>
         <td>BUG-069</td>
         <td>High</td>
-        <td>On the donation page, selecting/using the 50 CHF option does not work as expected.</td>
-        <td>Fix donation flow so the 50 CHF option works reliably end-to-end.</td>
-        <td>1) Open donation page. 2) Select 50 CHF option. 3) Complete donation action. 4) Verify payment flow proceeds successfully.</td>
+        <td>Platform inconsistency: 50 CHF donation works on Android, but does not work on iOS.</td>
+        <td>Make 50 CHF donation work reliably on iOS, matching Android behavior.</td>
+        <td>1) Open donation page on Android and iOS. 2) Select 50 CHF option. 3) Complete donation action on both platforms. 4) Verify both flows succeed.</td>
       </tr>
       <tr>
         <td>
@@ -818,9 +818,9 @@
         </td>
         <td>BUG-070</td>
         <td>Medium</td>
-        <td>Thank-you pop-up is missing after donation flow; this was implemented previously and is now no longer shown.</td>
-        <td>Restore the post-donation thank-you pop-up so it appears after a successful donation.</td>
-        <td>1) Complete a successful donation. 2) Verify thank-you pop-up appears immediately after success. 3) Confirm behavior matches prior implementation.</td>
+        <td>Platform inconsistency: on iOS, thank-you notification is missing after payment; on Android, it appears twice and requires dismissing twice.</td>
+        <td>Show thank-you notification exactly once after successful payment on both platforms (restore on iOS and prevent duplicate on Android).</td>
+        <td>1) Complete successful donation on iOS and Android. 2) Verify iOS shows thank-you notification once. 3) Verify Android shows it once (not duplicated). 4) Verify one dismiss action closes it fully.</td>
       </tr>
     </tbody>
   </table>
