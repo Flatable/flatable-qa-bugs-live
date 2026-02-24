@@ -1054,6 +1054,14 @@
         <td>When threshold is reached, show a small "Matched" tag on the card and simplify bottom actions to only the "Like" button (proposed easiest fix).</td>
         <td>1) Reach threshold state for a profile. 2) Open WG/flatmates homepage card. 3) Verify small "Matched" tag is visible. 4) Verify only "Like" button is shown at the bottom.</td>
       </tr>
+      <tr>
+        <td>General (no screenshot)</td>
+        <td>BUG-097</td>
+        <td>Medium (Edge Case)</td>
+        <td>Match-state regression edge case: threshold can be reached and later drop again if someone changes opinion, creating unstable behavior around matched status.</td>
+        <td>Once threshold is reached and match is created, immediately show a persistent "It's a match. Tap to chat" action/state so flow does not revert when votes/likes later go below threshold.</td>
+        <td>1) Reach threshold and trigger match. 2) Change one participant decision so raw threshold would normally drop below limit. 3) Verify UI still shows persistent "It's a match. Tap to chat" and does not regress to pre-match state.</td>
+      </tr>
     </tbody>
   </table>
 </body>
