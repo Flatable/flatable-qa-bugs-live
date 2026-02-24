@@ -1,0 +1,572 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>QA Bugs</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      margin: 24px;
+      color: #111;
+    }
+    h1 { margin: 0 0 8px; }
+    .meta { margin: 0 0 16px; color: #555; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      vertical-align: top;
+      word-wrap: break-word;
+    }
+    th {
+      background: #f6f6f6;
+      text-align: left;
+    }
+    img {
+      max-width: 260px;
+      height: auto;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      display: block;
+    }
+    .muted {
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <h1>QA Bugs</h1>
+  <p class="meta">Date: 2026-02-23</p>
+  <p class="meta">Builds: iOS TestFlight 2.1.6 (3), Android Play Store live build</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 280px;">Screenshot</th>
+        <th style="width: 140px;">Bug ID</th>
+        <th style="width: 110px;">Platform</th>
+        <th style="width: 110px;">Severity</th>
+        <th>Observed behavior</th>
+        <th>Expected behavior</th>
+        <th>Steps to reproduce</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>General (no screenshot)</td>
+        <td>BUG-000</td>
+        <td>Both</td>
+        <td>High</td>
+        <td>Token expiration setting is not aligned with expected session duration.</td>
+        <td>Set token expiration date to 14 days.</td>
+        <td>1) Generate/authenticate token. 2) Inspect token expiry configuration/claims. 3) Verify expiration window is 14 days.</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="quicktime_bug_001.png" alt="Current iOS screen for purpose string issue" />
+        </td>
+        <td>BUG-001</td>
+        <td>iOS</td>
+        <td>Medium</td>
+        <td>Purpose string on this screen needs adjustment for App Store review compliance.</td>
+        <td>Update the purpose string to the exact approved wording once Apple confirms the final text (to avoid another review delay).</td>
+        <td>1) Open the screen shown in the screenshot. 2) Trigger the related permission/prompt. 3) Verify purpose string wording.</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="quicktime_bug_002.png" alt="Onboarding study/work and major/profession fields" />
+        </td>
+        <td>BUG-002</td>
+        <td>iOS</td>
+        <td>High</td>
+        <td>On onboarding, data collection and display behavior for Study/Work + Major/Profession does not match Apple-review-safe requirement.</td>
+        <td>
+          Make only Study vs Working mandatory. Major and Profession must be optional with explicit helper text:
+          "What is your major? (Optional)" and "What is your profession? (Optional)".
+          Backend/display fallback rules:
+          if user selects Studying and leaves major empty, store/show "Student";
+          if user selects Working and leaves profession empty, store/show "Professional";
+          if user provides major/profession, store/show the actual provided value.
+        </td>
+        <td>1) Open onboarding education/work step. 2) Select Studying or Working. 3) Leave major/profession empty. 4) Continue and verify fallback values and profile display behavior.</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="quicktime_ui_003.png" alt="Current screen for answer selection error message" />
+        </td>
+        <td>BUG-003</td>
+        <td>iOS</td>
+        <td>Medium</td>
+        <td>Current validation error message wording is unclear/inconsistent for the question selection step.</td>
+        <td>Error message should be: "Please select at least one answer per question".</td>
+        <td>1) Open the question step. 2) Leave at least one question without any selected answer. 3) Continue and verify the shown error message text.</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="quicktime_bug_004.png" alt="Second question error message consistency case" />
+        </td>
+        <td>BUG-004</td>
+        <td>iOS</td>
+        <td>Medium</td>
+        <td>Validation errors are inconsistent between the two question fields when no answer is selected.</td>
+        <td>For both questions, show the same message: "Please select at least one answer per question" whenever no option is selected.</td>
+        <td>1) Open the questions step. 2) Submit with no selection for question A. 3) Submit with no selection for question B. 4) Verify both show identical error text.</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="quicktime_bug_005.png" alt="Question selections not persisted after back navigation" />
+        </td>
+        <td>BUG-005</td>
+        <td>iOS</td>
+        <td>High</td>
+        <td>Selected answers on this page are lost after navigating forward, going back two pages, and returning to this page.</td>
+        <td>Previously selected options should remain saved and pre-selected when user returns to this page during onboarding navigation.</td>
+        <td>1) Select options on this page. 2) Tap Next. 3) Go back two pages. 4) Navigate forward back to this page. 5) Observe selections are reset.</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="quicktime_bug_006.png" alt="Max answers error message consistency across questions" />
+        </td>
+        <td>BUG-006</td>
+        <td>iOS</td>
+        <td>Medium</td>
+        <td>When user exceeds the answer limit, error text is not consistent between the first and second question.</td>
+        <td>Use the same message for both questions: "You can select up to eight answers".</td>
+        <td>1) Open question 1 and select more than 8 answers. 2) Observe error text. 3) Repeat on question 2. 4) Verify both show identical error wording.</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="quicktime_bug_007.png" alt="Flatmate onboarding should skip this page when joining a flat" />
+        </td>
+        <td>BUG-007</td>
+        <td>iOS</td>
+        <td>High</td>
+        <td>Flatmate onboarding (join existing flat flow) still uses the generic onboarding sequence, so this page appears, page count is incorrect after skip logic, last-page text is wrong, and final redirect does not go to flat home.</td>
+        <td>
+          For flatmate join flow, use a dedicated onboarding flow:
+          skip this page,
+          update progress count from 7 total to 6 total across all related pages,
+          change final page text from "Let's find your flat" to "Let's find your roommate",
+          and redirect to flat home page at completion.
+        </td>
+        <td>1) Start onboarding as flatmate. 2) Choose/join an existing flat. 3) Continue onboarding to end. 4) Verify this page is skipped, progress shows 6 total, final text says "Let's find your roommate", and completion redirects to flat home.</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="quicktime_bug_008.png" alt="Dates page data not persisted after navigation" />
+        </td>
+        <td>BUG-008</td>
+        <td>iOS</td>
+        <td>High</td>
+        <td>On the dates page, selected/entered date data is lost after navigating away and returning.</td>
+        <td>Date selections/inputs should remain saved when user goes forward/back and comes back to the dates page.</td>
+        <td>1) Fill/select date data on dates page. 2) Navigate forward. 3) Navigate back and return to dates page. 4) Observe date data is reset.</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="quicktime_media_001.png" alt="Image picker requires repeated album reopen" />
+        </td>
+        <td>BUG-009</td>
+        <td>iOS</td>
+        <td>Medium</td>
+        <td>User cannot select several pictures at once and must leave/re-enter album repeatedly to add multiple images.</td>
+        <td>User should be able to multi-select several pictures in one pass without going out of album and back in again.</td>
+        <td>1) Open image picker. 2) Try selecting multiple images from the same album in one flow. 3) Observe current flow requires reopening album repeatedly.</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="quicktime_bug_010.png" alt="Hide house number option should be removed" />
+        </td>
+        <td>BUG-010</td>
+        <td>iOS</td>
+        <td>Medium</td>
+        <td>"Hide house number" option is present and clicking it opens the house-number field behavior we do not want.</td>
+        <td>Remove the entire "Hide house number" option: remove the text, remove the checkbox, and remove any click behavior that opens the house-number field from that option.</td>
+        <td>1) Open the address/location page. 2) Locate "Hide house number". 3) Tap the option/checkbox. 4) Observe related house-number field behavior is triggered.</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="quicktime_bug_011.png" alt="Distances to key places wording update" />
+        </td>
+        <td>BUG-011</td>
+        <td>iOS</td>
+        <td>Low</td>
+        <td>The heading next to this question does not specify the transportation mode and can be unclear.</td>
+        <td>Change text to: "What are the distances to key places by public transportation" and then show the options.</td>
+        <td>1) Open this onboarding question page. 2) Locate the "distances to key places" question title. 3) Verify wording includes "by public transportation".</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="quicktime_bug_011.png" alt="Room furnished validation order and message" />
+        </td>
+        <td>BUG-012</td>
+        <td>iOS</td>
+        <td>Medium</td>
+        <td>Validation order is incorrect and room-furnished error text is inconsistent.</td>
+        <td>
+          Validate in this order: room furnished first, then student requirement, then amenities.
+          Use this exact room-furnished validation message: "Please select if the room is furnished".
+        </td>
+        <td>1) Open the related onboarding page. 2) Try submitting with missing inputs. 3) Verify validation order is room furnished -> student requirement -> amenities and the room-furnished error text matches exactly.</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="quicktime_bug_013.png" alt="Student requirement error message update" />
+        </td>
+        <td>BUG-013</td>
+        <td>iOS</td>
+        <td>Low</td>
+        <td>Current student-requirement validation message is incorrect.</td>
+        <td>Change error message to: "Please select the student requirement".</td>
+        <td>1) Open the relevant onboarding step. 2) Leave student requirement unselected. 3) Continue. 4) Verify exact error text is shown.</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="quicktime_bug_014.png" alt="Date data not saved after forward and back navigation" />
+        </td>
+        <td>BUG-014</td>
+        <td>iOS</td>
+        <td>High</td>
+        <td>If I choose the date, go forward, go back, and return to this page, the selected date data is lost.</td>
+        <td>Date data should stay saved when navigating forward/back and returning to this page.</td>
+        <td>1) Select date on this page. 2) Go to next page. 3) Go back and return to this page. 4) Observe selected data is not saved.</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="quicktime_bug_015.png" alt="Error message should not end with a period" />
+        </td>
+        <td>BUG-015</td>
+        <td>iOS</td>
+        <td>Low</td>
+        <td>Error message currently ends with a period.</td>
+        <td>Remove the dot at the end of the error-message sentence.</td>
+        <td>1) Trigger the relevant error message. 2) Check sentence punctuation. 3) Verify there is no period at the end.</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="quicktime_bug_016.png" alt="Remove trailing period in error message" />
+        </td>
+        <td>BUG-016</td>
+        <td>iOS</td>
+        <td>Low</td>
+        <td>Error message includes a trailing period at the end.</td>
+        <td>Remove the period at the end of the error message.</td>
+        <td>1) Trigger the error message on this screen. 2) Inspect final character. 3) Confirm no trailing period is shown.</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="quicktime_bug_017.png" alt="Leading apostrophe in error message" />
+        </td>
+        <td>BUG-017</td>
+        <td>iOS</td>
+        <td>Low</td>
+        <td>Error messages for both questions start with an unwanted apostrophe character.</td>
+        <td>For both questions, remove the apostrophe at the beginning of the error message.</td>
+        <td>1) Trigger the error message for question 1. 2) Trigger the error message for question 2. 3) Verify neither message starts with an apostrophe.</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="quicktime_shared_018.png" alt="Shared screenshot for multi-select photo bug 1" />
+        </td>
+        <td>BUG-018</td>
+        <td>iOS</td>
+        <td>Medium</td>
+        <td>User cannot select several pictures at once from the photo album in one flow.</td>
+        <td>Users should be able to select multiple pictures at once in the photo album.</td>
+        <td>1) Open photo album picker. 2) Attempt to select multiple images in one pass. 3) Verify multi-select works without reopening album.</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="quicktime_shared_018.png" alt="Shared screenshot for image persistence after navigation bug" />
+        </td>
+        <td>BUG-019</td>
+        <td>iOS</td>
+        <td>High</td>
+        <td>Selected images are gone after navigating forward, going back twice, and returning to this page.</td>
+        <td>Selected images should remain saved when user goes to the next page, navigates back twice, and returns to this page.</td>
+        <td>1) Select/add images on this page. 2) Go to next page. 3) Go back twice. 4) Return to this page. 5) Verify selected images are still present.</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="quicktime_bug_020.png" alt="Next blocked by mandatory image upload error" />
+        </td>
+        <td>BUG-020</td>
+        <td>iOS</td>
+        <td>Medium</td>
+        <td>When tapping Next on this page without images, an error appears saying to upload at least one image and blocks progress.</td>
+        <td>Remove this error requirement; user should be able to tap Next and continue without uploading any image.</td>
+        <td>1) Open this page with no images uploaded. 2) Tap Next. 3) Verify no blocking upload error appears and navigation continues.</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="quicktime_bug_021.png" alt="Selected images deleted after page navigation" />
+        </td>
+        <td>BUG-021</td>
+        <td>iOS</td>
+        <td>High</td>
+        <td>When user selects an image, goes to next page, goes back two pages, and returns to this page, selected images are deleted.</td>
+        <td>Selected images should remain saved after forward/back navigation and still be visible on return.</td>
+        <td>1) Select image(s) on this page. 2) Go to next page. 3) Go back two pages. 4) Return to this page. 5) Verify previously selected images are still there.</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="quicktime_bug_021.png" alt="Users should select several pictures at once" />
+        </td>
+        <td>BUG-022</td>
+        <td>iOS</td>
+        <td>Medium</td>
+        <td>Current flow does not support selecting several pictures efficiently in one action.</td>
+        <td>Users should be able to select several pictures at once from the photo album.</td>
+        <td>1) Open photo picker. 2) Attempt multi-select in album. 3) Verify multiple images can be selected in one flow.</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="quicktime_bug_023.png" alt="Asterisk message under no we will do it later option" />
+        </td>
+        <td>BUG-023</td>
+        <td>iOS</td>
+        <td>Low</td>
+        <td>An asterisk (*) message is shown under "No, we will do it later".</td>
+        <td>Delete/remove the asterisk message shown under "No, we will do it later".</td>
+        <td>1) Open the relevant screen. 2) Locate the "No, we will do it later" option. 3) Verify no asterisk helper message is displayed underneath.</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="quicktime_bug_024.png" alt="Text should use viewings instead of dates in helper copy" />
+        </td>
+        <td>BUG-024</td>
+        <td>iOS</td>
+        <td>Low</td>
+        <td>After clicking "Yes, let's set it up" (state not visible in this screenshot), helper text still uses "dates" wording where flow language should refer to viewings.</td>
+        <td>After clicking "Yes, let's set it up", replace "dates" with "viewings" in the text after "Please set your viewing date", including wording like: "You won't be able to edit these viewings, but you can still cancel or add new viewings."</td>
+        <td>1) Click "Yes, let's set it up". 2) Go to the text after "Please set your viewing date". 3) Verify all relevant "dates" terms are changed to "viewings". (This text state is not visible in the screenshot.)</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="quicktime_bug_024.png" alt="Second dates label should be renamed to viewings" />
+        </td>
+        <td>BUG-025</td>
+        <td>iOS</td>
+        <td>Low</td>
+        <td>After clicking "Yes, let's set it up" (state not visible in this screenshot), a second "dates" text/label is still shown.</td>
+        <td>After clicking "Yes, let's set it up", replace the second "dates" wording with "viewings" too, so terminology is consistent across the page.</td>
+        <td>1) Click "Yes, let's set it up". 2) Identify both occurrences of "dates". 3) Confirm both are renamed to "viewings". (This text state is not visible in the screenshot.)</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="quicktime_bug_026.png" alt="Remove profile created successfully message" />
+        </td>
+        <td>BUG-026</td>
+        <td>iOS</td>
+        <td>Low</td>
+        <td>"Profile created successfully" message is shown on this screen.</td>
+        <td>Remove the "Profile created successfully" message.</td>
+        <td>1) Complete the relevant action/flow. 2) Observe the success message. 3) Verify this message is not shown anymore.</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="quicktime_bug_027.png" alt="WG profile not found after flatmate removes self from flat" />
+        </td>
+        <td>BUG-027</td>
+        <td>iOS</td>
+        <td>High</td>
+        <td>If a flatmate removes themselves from the flat, app shows "WG profile not found" page.</td>
+        <td>After removing self from flat, user should automatically switch to roommate account flow instead of seeing "WG profile not found".</td>
+        <td>1) Log in as flatmate linked to a flat. 2) Remove self from flat. 3) Observe app state immediately after action. 4) Verify user is redirected to roommate account flow automatically.</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="quicktime_bug_028.png" alt="Admin removes flatmate then profile shows WG profile not found" />
+        </td>
+        <td>BUG-028</td>
+        <td>iOS</td>
+        <td>High</td>
+        <td>If admin removes a flatmate from the flat, most pages still open (home/filter/casting/chat), but profile page shows the same WG-profile-not-found/dummy error state.</td>
+        <td>As soon as flatmate is removed from flat by admin, app should automatically switch to roommate profile/account flow and prevent broken flat-account state screens.</td>
+        <td>1) Admin removes flatmate from flat. 2) Flatmate opens app and navigates through pages. 3) Open profile page. 4) Verify no WG-profile-not-found error and user is auto-switched to roommate profile flow.</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="quicktime_bug_029.png" alt="Address overlay behavior on listing images" />
+        </td>
+        <td>BUG-029</td>
+        <td>iOS</td>
+        <td>Medium</td>
+        <td>Address overlay behavior is inconsistent/usability-limited: address remains visible beyond first image, sits too high (middle area), and the address area does not scroll when user drags on it.</td>
+        <td>
+          1) Show address only on the first image, then hide it on subsequent images.
+          2) Move the address block down closer to the bottom border (not in the middle).
+          3) Make the address area scroll-responsive so swiping on/over it still allows scrolling.
+        </td>
+        <td>1) Open image carousel/listing view with address overlay. 2) Swipe through images and check address visibility/position. 3) Try scrolling while touching the address area. 4) Verify behavior matches expected.</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="quicktime_bug_030.png" alt="Room details formatting and duplicate section issues" />
+        </td>
+        <td>BUG-030</td>
+        <td>iOS</td>
+        <td>Medium</td>
+        <td>Room details display has multiple formatting/content issues on mate home page (e.g., flat account `testuser001@gmail.com`).</td>
+        <td>
+          1) In room details date text, remove comma after date/month.
+          2) After rent value, add "(CHF)".
+          3) Show square meters as proper superscript: m² (2 should be small and raised).
+          4) Remove duplicate room details section so it is shown only once.
+        </td>
+        <td>1) Open mate home page for flat account (example: `testuser001@gmail.com`). 2) Inspect room details and amenities area. 3) Verify date punctuation, currency label, m² formatting, and that room details appears only once.</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="quicktime_bug_031.png" alt="Roommate details icon should open correct profile behavior" />
+        </td>
+        <td>BUG-031</td>
+        <td>iOS</td>
+        <td>High</td>
+        <td>Clicking Roommate Details / flatmate / WG account icon does not always open the expected profile view behavior, and it may show date fields that should not appear for flatmate flow.</td>
+        <td>
+          When tapping Roommate Details (flatmate/WG icon):
+          1) Open that person's profile if roommate profile exists.
+          2) If WG account has no roommate account, show fallback mini profile with image + name + age.
+          3) For flatmates, always open/show profile (flatmates always have a profile).
+          4) If we implement a separate flatmate onboarding flow (duplicated pages with adjusted text), do not show any from/until date fields for flatmate profile views opened from flatmate/WG account icon.
+        </td>
+        <td>1) Tap Roommate Details icon for different user/account types. 2) Verify WG with roommate account opens full profile. 3) Verify WG without roommate account shows image/name/age fallback. 4) Verify flatmate always opens profile. 5) In separate flatmate onboarding flow setup, verify no from/until date fields appear when opening via flatmate/WG icon.</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="quicktime_bug_032.png" alt="Distances title should include by public transportation text in brackets" />
+        </td>
+        <td>BUG-032</td>
+        <td>iOS</td>
+        <td>Low</td>
+        <td>Distances title is missing transport-context text next to the title.</td>
+        <td>Add "(by public transportation)" next to the distances title, in normal text style (not bold).</td>
+        <td>1) Open page showing distances title. 2) Verify title includes "(by public transportation)". 3) Confirm bracket text is normal (non-bold).</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="quicktime_bug_032.png" alt="Second distances title should include by public transportation text in brackets" />
+        </td>
+        <td>BUG-033</td>
+        <td>iOS</td>
+        <td>Low</td>
+        <td>Second distances heading/instance also lacks the transport-context bracket text.</td>
+        <td>For the second distances title too, add "(by public transportation)" in normal text (not bold).</td>
+        <td>1) Open all sections/screens where distances title appears. 2) Verify both instances include "(by public transportation)". 3) Confirm formatting is non-bold in each.</td>
+      </tr>
+      <tr>
+        <td>General (no screenshot)</td>
+        <td>BUG-034</td>
+        <td>Both</td>
+        <td>High</td>
+        <td>Desired account-transition behavior for users with both flat and roommate profiles is not enforced on offer acceptance.</td>
+        <td>
+          Keep current dual-profile setup (user can have flat profile and roommate profile simultaneously, and can still search for a flat while in a flat).
+          On accepting an offer from roommate profile:
+          1) If user is currently part of a flat, show a confirmation popup that accepting will remove them from the current flat.
+          2) If user is flatmate, remove them from current flat and add them to new flat directly.
+          3) If user is admin, require selecting a new flat admin first; then remove current admin and add them to the new flat.
+        </td>
+        <td>1) Use account with both flat + roommate profiles. 2) Accept an offer from roommate profile. 3) Verify popup and role-specific flow (flatmate vs admin) executes correctly.</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="quicktime_bug_035.png" alt="Rent label should include CHF in brackets" />
+        </td>
+        <td>BUG-035</td>
+        <td>iOS</td>
+        <td>Low</td>
+        <td>In the card, rent value is shown without the required bracketed currency notation.</td>
+        <td>After rent in the card, add "(CHF)" with CHF in uppercase inside brackets.</td>
+        <td>1) Open flat card view. 2) Locate rent field/value. 3) Verify format includes "(CHF)" directly after rent.</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="quicktime_bug_036.png" alt="Map view full details should match homepage functionality" />
+        </td>
+        <td>BUG-036</td>
+        <td>iOS</td>
+        <td>High</td>
+        <td>In map view after opening card full details, behavior/content is not aligned with homepage full-details behavior.</td>
+        <td>
+          Ensure map-view full details has same functionality/format as homepage:
+          1) From date: remove unnecessary comma.
+          2) Until date: must be shown.
+          3) Rent: add "(CHF)" in uppercase brackets.
+          4) Square meters: render as proper superscript m².
+          5) Address: visible only on first image; hidden on subsequent images.
+          6) Use WG account user icon (not flat icon) where applicable.
+          7) Roommates count must be correct (not zero when data exists).
+        </td>
+        <td>1) Open map view. 2) Tap card and open full details. 3) Compare with homepage full-details behavior. 4) Verify all listed parity points are fixed.</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="quicktime_bug_037.png" alt="Top and bottom border should match flat filter page" />
+        </td>
+        <td>BUG-037</td>
+        <td>iOS</td>
+        <td>Low</td>
+        <td>Top and bottom soft border gradients on this screen are not visually consistent with the flat filter page style.</td>
+        <td>Adjust top and bottom soft borders (gradients) to exactly match the gradient style used on the flat filter page.</td>
+        <td>1) Open this screen and flat filter page side-by-side. 2) Compare top and bottom soft gradient borders. 3) Verify gradient intensity, fade, and placement are identical.</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="quicktime_bug_038.png" alt="Apply filter shows applied result without user-selected values" />
+        </td>
+        <td>BUG-038</td>
+        <td>iOS</td>
+        <td>Medium</td>
+        <td>When user clicks Apply Filter without setting any value, UI still shows an applied-filter result like "X flats". Also, some values appear preselected by default (example: Permanent).</td>
+        <td>There must be no preselected filter values by default. Specifically verify no preset values for: Permanent button, price range, ideal room size, roommate age preferences, and roommate preferences. Apply filter only when user explicitly sets values. If user applies with no selected value, show error message: "No filter selected" or "No filter value selected".</td>
+        <td>1) Open filter page fresh. 2) Verify no default selections in all filter groups. 3) Tap Apply Filter without selecting anything. 4) Verify error message is shown and no applied-filter state/count appears. 5) Select at least one value and verify apply behavior works normally.</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="quicktime_bug_039.png" alt="Roommate filter sliders should match flat profile slider design and behavior" />
+        </td>
+        <td>BUG-039</td>
+        <td>iOS</td>
+        <td>Medium</td>
+        <td>Roommate filtering sliders are not using the same layout/behavior pattern as the flat-profile age-range slider.</td>
+        <td>
+          For these four sliders in roommate filtering, use the exact same design/layout and interaction model as the flat-profile age-range slider:
+          1) Price range
+          2) Ideal room size
+          3) How many people (roommate preferences)
+          4) Roommate age preferences
+          Show min/max slider bounds consistently, and only show selected left/right values after the user actively changes the slider.
+        </td>
+        <td>1) Open roommate filtering. 2) Check all four sliders listed. 3) Compare against flat-profile age-range slider style and behavior. 4) Verify min/max bounds and selected-value behavior are identical.</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="quicktime_bug_040.png" alt="Roommate improve your matches tab should match flat design" />
+        </td>
+        <td>BUG-040</td>
+        <td>iOS</td>
+        <td>Medium</td>
+        <td>The Roommate "Improve your matches" tab design/layout is inconsistent with the Flat version.</td>
+        <td>Copy/adopt the exact same design layout and visual treatment from the Flat "Improve your matches" tab for the Roommate tab as well.</td>
+        <td>1) Open Flat "Improve your matches" tab. 2) Open Roommate "Improve your matches" tab. 3) Compare layout, spacing, components, and styling. 4) Verify Roommate tab matches Flat tab design exactly.</td>
+      </tr>
+      <tr>
+        <td>General (no screenshot)</td>
+        <td>BUG-041</td>
+        <td>iOS</td>
+        <td>Low</td>
+        <td>The top bar containing "Filter" and "Improve your matches" is too tall and consumes too much vertical space.</td>
+        <td>Reduce the height of this bar so users can see more filtering options/content without extra scrolling.</td>
+        <td>1) Open filtering page. 2) Compare visible content area before/after bar-height adjustment. 3) Verify more filter options are visible on screen.</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>
