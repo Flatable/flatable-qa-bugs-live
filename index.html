@@ -509,10 +509,24 @@
         <td>1) Open roommate filtering. 2) Set slider values and apply. 3) Tap Reset Filter and verify all values/positions reset. 4) Apply with no values and verify validation error. 5) Confirm all four sliders match flat-profile age-range slider design/behavior.</td>
       </tr>
       <tr>
+        <td>General (no screenshot)</td>
+        <td>BUG-040</td>
+        <td>High</td>
+        <td>Filter behavior appears incorrect/inconsistent on both filter pages: amenities and gender filters can return no results despite known matching flats, suggesting hidden preselected values or faulty filter logic.</td>
+        <td>
+          Fully review both filter pages and validate every filter function individually. Ensure no hidden/default preselected values affect results. Key checks:
+          1) Amenities filter (e.g., WiFi) returns expected matching flats.
+          2) Gender filter (e.g., all-female) returns expected matching flats.
+          3) No silent preselection changes results.
+          4) If user applies with no selected values, show validation message instead of applied state.
+        </td>
+        <td>1) Open each filter page fresh. 2) Test each filter independently (amenities, gender, etc.) against known data. 3) Verify expected matches are returned. 4) Apply with no values and verify validation message appears.</td>
+      </tr>
+      <tr>
         <td>
           <img src="quicktime_bug_040.png" alt="Roommate improve your matches tab should match flat design" />
         </td>
-        <td>BUG-041</td>
+        <td>BUG-042</td>
         <td>Medium</td>
         <td>The Roommate "Improve your matches" tab design/layout is inconsistent with the Flat version.</td>
         <td>Copy/adopt the exact same design layout and visual treatment from the Flat "Improve your matches" tab for the Roommate tab as well.</td>
@@ -520,7 +534,7 @@
       </tr>
       <tr>
         <td>General (no screenshot)</td>
-        <td>BUG-042</td>
+        <td>BUG-043</td>
         <td>Low</td>
         <td>The top bar containing "Filter" and "Improve your matches" is too tall and consumes too much vertical space.</td>
         <td>Reduce the height of this bar so users can see more filtering options/content without extra scrolling.</td>
@@ -530,7 +544,7 @@
         <td>
           <img src="quicktime_bug_042.png" alt="Flat filter apply without values shows applied state and preselected until" />
         </td>
-        <td>BUG-043</td>
+        <td>BUG-044</td>
         <td>Medium</td>
         <td>On flat filter page, tapping Apply without setting any filters still shows applied state (e.g., "0 mates available"), and "Until" appears preselected unexpectedly.</td>
         <td>Do not preselect any filter values by default (including "Until"). If user taps Apply with no selected values, show a clear validation message instead of applied state. Suggested message: "Please select at least one filter before applying."</td>
@@ -540,7 +554,7 @@
         <td>
           <img src="quicktime_bug_043.png" alt="Bottom button text should be Apply Filter with capital F" />
         </td>
-        <td>BUG-044</td>
+        <td>BUG-045</td>
         <td>Low</td>
         <td>Bottom button text is not consistent with roommate filter page wording/capitalization.</td>
         <td>Change button label to "Apply Filter" (capital F) so wording is consistent with the roommate filter page.</td>
@@ -550,7 +564,7 @@
         <td>
           <img src="quicktime_bug_044.png" alt="Transition between Filter and Improve your matches tabs should match roommate filter page" />
         </td>
-        <td>BUG-045</td>
+        <td>BUG-046</td>
         <td>Low</td>
         <td>Transition behavior from Filter tab to Improve your matches tab is not consistent with the roommate filters page.</td>
         <td>Make the tab transition animation/interaction the same as on the roommate filters page so behavior is consistent.</td>
