@@ -731,6 +731,14 @@
         <td>When flat resets and starts a new search cycle, previous mate associations from the prior cycle should be cleared and not shown on flat home page.</td>
         <td>1) Complete flow where flat finds roommates. 2) Reset flat count/start new search and finish onboarding/reboarding. 3) Open flat home page. 4) Verify previous mates are not shown.</td>
       </tr>
+      <tr>
+        <td>General (no screenshot)</td>
+        <td>BUG-062</td>
+        <td>High</td>
+        <td>After account reset and starting a new search, flat can send an offer after casting, but opening the offer-received card leads to a black screen (profile/details unavailable, no accept action possible).</td>
+        <td>Offer-received card should open the correct profile/details view and allow normal actions. Review/reset-related state handling and validate end-to-end post-reset flows.</td>
+        <td>1) Reset account and start a new search. 2) Send offer to mate after casting. 3) Open offer-received card. 4) Verify profile/details render and accept/reject actions are available (no black screen).</td>
+      </tr>
     </tbody>
   </table>
 </body>
