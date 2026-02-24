@@ -747,6 +747,14 @@
         <td>Reset flow should fully clear previous casting occupancy/state. In a fresh post-reset cycle, available casting dates should not show "no spots available" unless capacity is actually reached.</td>
         <td>1) Reset flat/account and start a new search cycle. 2) Create/use new mate profiles. 3) Click choose new casting date. 4) Verify available dates do not incorrectly show no-spots error when no participants exist.</td>
       </tr>
+      <tr>
+        <td>General (no screenshot)</td>
+        <td>BUG-064</td>
+        <td>High</td>
+        <td>Mate viewing page intermittently shows error: "casting date not found in WG setup", and user cannot register for viewings.</td>
+        <td>Casting date lookup should be stable and deterministic. Mate should always be able to register when valid casting dates exist; no intermittent "not found" errors.</td>
+        <td>1) Open mate viewing page repeatedly across sessions/accounts. 2) Attempt to register for viewing dates. 3) Verify no intermittent "casting date not found in WG setup" error and registration remains available when dates exist.</td>
+      </tr>
     </tbody>
   </table>
 </body>
