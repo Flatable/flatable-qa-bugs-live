@@ -642,6 +642,21 @@
         <td>Move the gradient up so it covers the area properly and prevents content from popping behind it. Keep completed casting view visually consistent with upcoming casting view.</td>
         <td>1) Open completed casting view. 2) Observe lottie and participant list area. 3) Scroll participants upward. 4) Verify content does not appear behind gradient and coverage matches expected layout.</td>
       </tr>
+      <tr>
+        <td>
+          <img src="quicktime_bug_054.png" alt="Canceled viewing screen should offer correct actions by cancellation type" />
+        </td>
+        <td>BUG-054</td>
+        <td>High</td>
+        <td>When flat cancels the entire viewing, this screen appears but user only gets delete-flat action. The action logic should differ based on cancellation type.</td>
+        <td>
+          Use separate action logic:
+          1) If flat cancels the entire viewing, show this screen and allow user to select a new viewing.
+          2) If flat uninvites mate from casting, show canceled-session message and only allow delete action.
+          3) Delete action should move flat to rejection tab.
+        </td>
+        <td>1) Trigger scenario A: flat cancels whole viewing. 2) Verify user can select new viewing from this screen. 3) Trigger scenario B: flat uninvites mate from casting. 4) Verify only delete option is shown. 5) Verify delete moves flat to rejection tab.</td>
+      </tr>
     </tbody>
   </table>
 </body>
