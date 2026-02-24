@@ -1030,6 +1030,14 @@
         <td>Restrict "add new roommate" action to admin only. Non-admin flat members should not be able to access or execute this action.</td>
         <td>1) Login as non-admin flat member and verify add-roommate action is hidden/disabled and blocked server-side. 2) Login as admin and verify add-roommate action works normally.</td>
       </tr>
+      <tr>
+        <td>General (no screenshot)</td>
+        <td>BUG-094</td>
+        <td>High</td>
+        <td>Admin self-removal flow is missing required ownership transfer: admin can remove himself without selecting a new admin first.</td>
+        <td>Implement mandatory "choose new admin" step before current admin can remove/leave himself from the flat account. Block self-removal until a successor admin is selected and confirmed.</td>
+        <td>1) Login as current admin. 2) Trigger remove-self/leave-flat action. 3) Verify app requires selecting a new admin before proceeding. 4) Confirm self-removal is blocked if no successor chosen. 5) After selecting successor, verify transfer + removal complete correctly.</td>
+      </tr>
     </tbody>
   </table>
 </body>
