@@ -692,6 +692,14 @@
         <td>Remove all "mate action success" notifications across the entire app.</td>
         <td>1) Trigger mate-related actions in key flows/screens. 2) Verify no "mate action success" notification appears anywhere in the app.</td>
       </tr>
+      <tr>
+        <td>General (no screenshot)</td>
+        <td>BUG-058</td>
+        <td>High</td>
+        <td>After mate cancels a casting and clicks flat card to choose a new casting, one casting is auto-preselected; confirming can attach the wrong casting (shown incorrectly in Upcoming Tasks).</td>
+        <td>Do not auto-preselect a casting in this recovery flow. Require explicit user selection of a casting after cancellation to avoid wrong assignment.</td>
+        <td>1) Cancel an existing casting as mate. 2) Open flat card and start choosing a new casting. 3) Verify no casting is preselected by default. 4) Confirm selected casting and verify Upcoming Tasks shows the correct one.</td>
+      </tr>
     </tbody>
   </table>
 </body>
