@@ -822,6 +822,14 @@
         <td>Show thank-you notification exactly once after successful payment on both platforms (restore on iOS and prevent duplicate on Android).</td>
         <td>1) Complete successful donation on iOS and Android. 2) Verify iOS shows thank-you notification once. 3) Verify Android shows it once (not duplicated). 4) Verify one dismiss action closes it fully.</td>
       </tr>
+      <tr>
+        <td>General (no screenshot)</td>
+        <td>BUG-071</td>
+        <td>High</td>
+        <td>After successfully accepting a flat offer, tapping Chat opens the general chat landing page instead of the direct conversation between the mate and the flat.</td>
+        <td>After successful offer acceptance, Chat action should deep-link directly to the specific mate-flat chat thread for that accepted offer.</td>
+        <td>1) Accept a flat offer successfully. 2) Tap the Chat button from the success flow/state. 3) Verify app opens the exact mate-flat conversation thread, not the general chat overview page.</td>
+      </tr>
     </tbody>
   </table>
 </body>
