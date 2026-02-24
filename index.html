@@ -1000,9 +1000,9 @@
         <td>General (no screenshot)</td>
         <td>BUG-090</td>
         <td>Medium</td>
-        <td>On mate viewing page, Confirm button is still visible even when there is no upcoming casting.</td>
-        <td>Hide/remove Confirm button when no upcoming casting exists. Button should appear only when a valid upcoming casting is available for confirmation.</td>
-        <td>1) Open mate viewing page in a state with no upcoming casting. 2) Verify Confirm button is not shown. 3) Switch to state with upcoming casting and verify button appears only then.</td>
+        <td>On mate viewing page, Confirm button can still be visible when action is not valid (e.g., no upcoming casting, or no spots available anymore).</td>
+        <td>Hide/remove Confirm button whenever confirmation is not possible. Button should appear only when a valid upcoming casting exists and spots are available.</td>
+        <td>1) Open mate viewing page in a state with no upcoming casting and verify Confirm button is not shown. 2) Open state with upcoming casting but no spots available and verify Confirm button is not shown. 3) Open valid state (upcoming casting + available spots) and verify Confirm button appears.</td>
       </tr>
     </tbody>
   </table>
