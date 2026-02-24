@@ -966,6 +966,16 @@
         <td>Preserve user-defined image order when replacing images. Replacing an image in slot N must keep the new image in slot N (no automatic append-to-end behavior).</td>
         <td>1) Open roommate images edit flow and flat images edit flow. 2) Replace an image in the middle slot/order. 3) Save changes. 4) Verify replaced image remains in the same slot/index chosen by user and overall order is preserved.</td>
       </tr>
+      <tr>
+        <td>
+          <img src="quicktime_bug_087.png" alt="Saved liked rejected profile view missing dates and inconsistent overlay/tab behavior" />
+        </td>
+        <td>BUG-087</td>
+        <td>High</td>
+        <td>In flat saved/liked/rejected profile views, from/until date is missing and profile-card presentation is inconsistent. Name/age/profession placement/visibility behavior and last-tab text are also not matching expected UX. Same issues likely affect mate profile view opened from viewing participants list.</td>
+        <td>For saved/liked/rejected profile views (and align same behavior in mate profile view from viewing participants list): 1) show from/until date correctly, 2) move name/age/profession block closer to bottom border, 3) show that block only on first image and hide it when swiping to next image, 4) change tab text from "looking for" to "What I am looking for".</td>
+        <td>1) Open flat saved list, liked list, and rejected list profile views. 2) Verify from/until dates are shown. 3) Verify name/age/profession block position is close to bottom border. 4) Swipe to next image and verify the block disappears with first image. 5) Verify tab label is exactly "What I am looking for". 6) Repeat checks for mate profile view opened from viewing participants list.</td>
+      </tr>
     </tbody>
   </table>
 </body>
