@@ -1038,6 +1038,14 @@
         <td>Implement mandatory "choose new admin" step before current admin can remove/leave himself from the flat account. Block self-removal until a successor admin is selected and confirmed.</td>
         <td>1) Login as current admin. 2) Trigger remove-self/leave-flat action. 3) Verify app requires selecting a new admin before proceeding. 4) Confirm self-removal is blocked if no successor chosen. 5) After selecting successor, verify transfer + removal complete correctly.</td>
       </tr>
+      <tr>
+        <td>General (no screenshot)</td>
+        <td>BUG-095</td>
+        <td>Medium</td>
+        <td>Delete-function behavior is not fully defined/aligned: unclear what should be deleted, what must be retained, and which dependency/edge cases must be handled.</td>
+        <td>Define and implement a complete delete-function specification covering data scope, side effects, permissions, soft vs hard delete, recovery behavior, and cross-feature impacts before finalizing deletion flows.</td>
+        <td>1) Document delete rules per entity/state (what is deleted vs retained). 2) Validate permissions and role-based constraints. 3) Validate cascades/references across lists, chats, casting, offers, and history. 4) Verify expected behavior for edge cases and recovery/audit requirements.</td>
+      </tr>
     </tbody>
   </table>
 </body>
