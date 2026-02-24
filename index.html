@@ -49,8 +49,7 @@
       <tr>
         <th style="width: 280px;">Screenshot</th>
         <th style="width: 140px;">Bug ID</th>
-        <th style="width: 110px;">Platform</th>
-        <th style="width: 110px;">Severity</th>
+                <th style="width: 110px;">Severity</th>
         <th>Observed behavior</th>
         <th>Expected behavior</th>
         <th>Steps to reproduce</th>
@@ -60,7 +59,6 @@
       <tr>
         <td>General (no screenshot)</td>
         <td>BUG-000</td>
-        <td>Both</td>
         <td>High</td>
         <td>Token expiration setting is not aligned with expected session duration.</td>
         <td>Set token expiration date to 14 days.</td>
@@ -71,7 +69,6 @@
           <img src="quicktime_bug_001.png" alt="Current iOS screen for purpose string issue" />
         </td>
         <td>BUG-001</td>
-        <td>iOS</td>
         <td>Medium</td>
         <td>Purpose string on this screen needs adjustment for App Store review compliance.</td>
         <td>Update the purpose string to the exact approved wording once Apple confirms the final text (to avoid another review delay).</td>
@@ -82,7 +79,6 @@
           <img src="quicktime_bug_002.png" alt="Onboarding study/work and major/profession fields" />
         </td>
         <td>BUG-002</td>
-        <td>iOS</td>
         <td>High</td>
         <td>On onboarding, data collection and display behavior for Study/Work + Major/Profession does not match Apple-review-safe requirement.</td>
         <td>
@@ -100,7 +96,6 @@
           <img src="quicktime_ui_003.png" alt="Current screen for answer selection error message" />
         </td>
         <td>BUG-003</td>
-        <td>iOS</td>
         <td>Medium</td>
         <td>Current validation error message wording is unclear/inconsistent for the question selection step.</td>
         <td>Error message should be: "Please select at least one answer per question".</td>
@@ -111,7 +106,6 @@
           <img src="quicktime_bug_004.png" alt="Second question error message consistency case" />
         </td>
         <td>BUG-004</td>
-        <td>iOS</td>
         <td>Medium</td>
         <td>Validation errors are inconsistent between the two question fields when no answer is selected.</td>
         <td>For both questions, show the same message: "Please select at least one answer per question" whenever no option is selected.</td>
@@ -122,7 +116,6 @@
           <img src="quicktime_bug_005.png" alt="Question selections not persisted after back navigation" />
         </td>
         <td>BUG-005</td>
-        <td>iOS</td>
         <td>High</td>
         <td>Selected answers on this page are lost after navigating forward, going back two pages, and returning to this page.</td>
         <td>Previously selected options should remain saved and pre-selected when user returns to this page during onboarding navigation.</td>
@@ -133,7 +126,6 @@
           <img src="quicktime_bug_006.png" alt="Max answers error message consistency across questions" />
         </td>
         <td>BUG-006</td>
-        <td>iOS</td>
         <td>Medium</td>
         <td>When user exceeds the answer limit, error text is not consistent between the first and second question.</td>
         <td>Use the same message for both questions: "You can select up to eight answers".</td>
@@ -144,7 +136,6 @@
           <img src="quicktime_bug_007.png" alt="Flatmate onboarding should skip this page when joining a flat" />
         </td>
         <td>BUG-007</td>
-        <td>iOS</td>
         <td>High</td>
         <td>Flatmate onboarding (join existing flat flow) still uses the generic onboarding sequence, so this page appears, page count is incorrect after skip logic, last-page text is wrong, and final redirect does not go to flat home.</td>
         <td>
@@ -161,7 +152,6 @@
           <img src="quicktime_bug_008.png" alt="Dates page data not persisted after navigation" />
         </td>
         <td>BUG-008</td>
-        <td>iOS</td>
         <td>High</td>
         <td>On the dates page, selected/entered date data is lost after navigating away and returning.</td>
         <td>Date selections/inputs should remain saved when user goes forward/back and comes back to the dates page.</td>
@@ -172,7 +162,6 @@
           <img src="quicktime_media_001.png" alt="Image picker requires repeated album reopen" />
         </td>
         <td>BUG-009</td>
-        <td>iOS</td>
         <td>Medium</td>
         <td>User cannot select several pictures at once and must leave/re-enter album repeatedly to add multiple images.</td>
         <td>User should be able to multi-select several pictures in one pass without going out of album and back in again.</td>
@@ -183,7 +172,6 @@
           <img src="quicktime_bug_010.png" alt="Hide house number option should be removed" />
         </td>
         <td>BUG-010</td>
-        <td>iOS</td>
         <td>Medium</td>
         <td>"Hide house number" option is present and clicking it opens the house-number field behavior we do not want.</td>
         <td>Remove the entire "Hide house number" option: remove the text, remove the checkbox, and remove any click behavior that opens the house-number field from that option.</td>
@@ -194,7 +182,6 @@
           <img src="quicktime_bug_011.png" alt="Distances to key places wording update" />
         </td>
         <td>BUG-011</td>
-        <td>iOS</td>
         <td>Low</td>
         <td>The heading next to this question does not specify the transportation mode and can be unclear.</td>
         <td>Change text to: "What are the distances to key places by public transportation" and then show the options.</td>
@@ -205,7 +192,6 @@
           <img src="quicktime_bug_011.png" alt="Room furnished validation order and message" />
         </td>
         <td>BUG-012</td>
-        <td>iOS</td>
         <td>Medium</td>
         <td>Validation order is incorrect and room-furnished error text is inconsistent.</td>
         <td>
@@ -219,7 +205,6 @@
           <img src="quicktime_bug_013.png" alt="Student requirement error message update" />
         </td>
         <td>BUG-013</td>
-        <td>iOS</td>
         <td>Low</td>
         <td>Current student-requirement validation message is incorrect.</td>
         <td>Change error message to: "Please select the student requirement".</td>
@@ -230,7 +215,6 @@
           <img src="quicktime_bug_014.png" alt="Date data not saved after forward and back navigation" />
         </td>
         <td>BUG-014</td>
-        <td>iOS</td>
         <td>High</td>
         <td>If I choose the date, go forward, go back, and return to this page, the selected date data is lost.</td>
         <td>Date data should stay saved when navigating forward/back and returning to this page.</td>
@@ -241,7 +225,6 @@
           <img src="quicktime_bug_015.png" alt="Error message should not end with a period" />
         </td>
         <td>BUG-015</td>
-        <td>iOS</td>
         <td>Low</td>
         <td>Error message currently ends with a period.</td>
         <td>Remove the dot at the end of the error-message sentence.</td>
@@ -252,7 +235,6 @@
           <img src="quicktime_bug_016.png" alt="Remove trailing period in error message" />
         </td>
         <td>BUG-016</td>
-        <td>iOS</td>
         <td>Low</td>
         <td>Error message includes a trailing period at the end.</td>
         <td>Remove the period at the end of the error message.</td>
@@ -263,7 +245,6 @@
           <img src="quicktime_bug_017.png" alt="Leading apostrophe in error message" />
         </td>
         <td>BUG-017</td>
-        <td>iOS</td>
         <td>Low</td>
         <td>Error messages for both questions start with an unwanted apostrophe character.</td>
         <td>For both questions, remove the apostrophe at the beginning of the error message.</td>
@@ -274,7 +255,6 @@
           <img src="quicktime_shared_018.png" alt="Shared screenshot for multi-select photo bug 1" />
         </td>
         <td>BUG-018</td>
-        <td>iOS</td>
         <td>Medium</td>
         <td>User cannot select several pictures at once from the photo album in one flow.</td>
         <td>Users should be able to select multiple pictures at once in the photo album.</td>
@@ -285,7 +265,6 @@
           <img src="quicktime_shared_018.png" alt="Shared screenshot for image persistence after navigation bug" />
         </td>
         <td>BUG-019</td>
-        <td>iOS</td>
         <td>High</td>
         <td>Selected images are gone after navigating forward, going back twice, and returning to this page.</td>
         <td>Selected images should remain saved when user goes to the next page, navigates back twice, and returns to this page.</td>
@@ -296,7 +275,6 @@
           <img src="quicktime_bug_020.png" alt="Next blocked by mandatory image upload error" />
         </td>
         <td>BUG-020</td>
-        <td>iOS</td>
         <td>Medium</td>
         <td>When tapping Next on this page without images, an error appears saying to upload at least one image and blocks progress.</td>
         <td>Remove this error requirement; user should be able to tap Next and continue without uploading any image.</td>
@@ -307,7 +285,6 @@
           <img src="quicktime_bug_021.png" alt="Selected images deleted after page navigation" />
         </td>
         <td>BUG-021</td>
-        <td>iOS</td>
         <td>High</td>
         <td>When user selects an image, goes to next page, goes back two pages, and returns to this page, selected images are deleted.</td>
         <td>Selected images should remain saved after forward/back navigation and still be visible on return.</td>
@@ -318,7 +295,6 @@
           <img src="quicktime_bug_021.png" alt="Users should select several pictures at once" />
         </td>
         <td>BUG-022</td>
-        <td>iOS</td>
         <td>Medium</td>
         <td>Current flow does not support selecting several pictures efficiently in one action.</td>
         <td>Users should be able to select several pictures at once from the photo album.</td>
@@ -329,7 +305,6 @@
           <img src="quicktime_bug_023.png" alt="Asterisk message under no we will do it later option" />
         </td>
         <td>BUG-023</td>
-        <td>iOS</td>
         <td>Low</td>
         <td>An asterisk (*) message is shown under "No, we will do it later".</td>
         <td>Delete/remove the asterisk message shown under "No, we will do it later".</td>
@@ -340,7 +315,6 @@
           <img src="quicktime_bug_024.png" alt="Text should use viewings instead of dates in helper copy" />
         </td>
         <td>BUG-024</td>
-        <td>iOS</td>
         <td>Low</td>
         <td>After clicking "Yes, let's set it up" (state not visible in this screenshot), helper text still uses "dates" wording where flow language should refer to viewings.</td>
         <td>After clicking "Yes, let's set it up", replace "dates" with "viewings" in the text after "Please set your viewing date", including wording like: "You won't be able to edit these viewings, but you can still cancel or add new viewings."</td>
@@ -351,7 +325,6 @@
           <img src="quicktime_bug_024.png" alt="Second dates label should be renamed to viewings" />
         </td>
         <td>BUG-025</td>
-        <td>iOS</td>
         <td>Low</td>
         <td>After clicking "Yes, let's set it up" (state not visible in this screenshot), a second "dates" text/label is still shown.</td>
         <td>After clicking "Yes, let's set it up", replace the second "dates" wording with "viewings" too, so terminology is consistent across the page.</td>
@@ -362,7 +335,6 @@
           <img src="quicktime_bug_026.png" alt="Remove profile created successfully message" />
         </td>
         <td>BUG-026</td>
-        <td>iOS</td>
         <td>Low</td>
         <td>"Profile created successfully" message is shown on this screen.</td>
         <td>Remove the "Profile created successfully" message.</td>
@@ -373,7 +345,6 @@
           <img src="quicktime_bug_027.png" alt="WG profile not found after flatmate removes self from flat" />
         </td>
         <td>BUG-027</td>
-        <td>iOS</td>
         <td>High</td>
         <td>If a flatmate removes themselves from the flat, app shows "WG profile not found" page.</td>
         <td>After removing self from flat, user should automatically switch to roommate account flow instead of seeing "WG profile not found".</td>
@@ -384,7 +355,6 @@
           <img src="quicktime_bug_028.png" alt="Admin removes flatmate then profile shows WG profile not found" />
         </td>
         <td>BUG-028</td>
-        <td>iOS</td>
         <td>High</td>
         <td>If admin removes a flatmate from the flat, most pages still open (home/filter/casting/chat), but profile page shows the same WG-profile-not-found/dummy error state.</td>
         <td>As soon as flatmate is removed from flat by admin, app should automatically switch to roommate profile/account flow and prevent broken flat-account state screens.</td>
@@ -395,7 +365,6 @@
           <img src="quicktime_bug_029.png" alt="Address overlay behavior on listing images" />
         </td>
         <td>BUG-029</td>
-        <td>iOS</td>
         <td>Medium</td>
         <td>Address overlay behavior is inconsistent/usability-limited: address remains visible beyond first image, sits too high (middle area), and the address area does not scroll when user drags on it.</td>
         <td>
@@ -410,7 +379,6 @@
           <img src="quicktime_bug_030.png" alt="Room details formatting and duplicate section issues" />
         </td>
         <td>BUG-030</td>
-        <td>iOS</td>
         <td>Medium</td>
         <td>Room details display has multiple formatting/content issues on mate home page (e.g., flat account `testuser001@gmail.com`).</td>
         <td>
@@ -426,7 +394,6 @@
           <img src="quicktime_bug_031.png" alt="Roommate details icon should open correct profile behavior" />
         </td>
         <td>BUG-031</td>
-        <td>iOS</td>
         <td>High</td>
         <td>Clicking Roommate Details / flatmate / WG account icon does not always open the expected profile view behavior, and it may show date fields that should not appear for flatmate flow.</td>
         <td>
@@ -443,7 +410,6 @@
           <img src="quicktime_bug_032.png" alt="Distances title should include by public transportation text in brackets" />
         </td>
         <td>BUG-032</td>
-        <td>iOS</td>
         <td>Low</td>
         <td>Distances title is missing transport-context text next to the title.</td>
         <td>Add "(by public transportation)" next to the distances title, in normal text style (not bold).</td>
@@ -454,7 +420,6 @@
           <img src="quicktime_bug_032.png" alt="Second distances title should include by public transportation text in brackets" />
         </td>
         <td>BUG-033</td>
-        <td>iOS</td>
         <td>Low</td>
         <td>Second distances heading/instance also lacks the transport-context bracket text.</td>
         <td>For the second distances title too, add "(by public transportation)" in normal text (not bold).</td>
@@ -463,7 +428,6 @@
       <tr>
         <td>General (no screenshot)</td>
         <td>BUG-034</td>
-        <td>Both</td>
         <td>High</td>
         <td>Desired account-transition behavior for users with both flat and roommate profiles is not enforced on offer acceptance.</td>
         <td>
@@ -480,7 +444,6 @@
           <img src="quicktime_bug_035.png" alt="Rent label should include CHF in brackets" />
         </td>
         <td>BUG-035</td>
-        <td>iOS</td>
         <td>Low</td>
         <td>In the card, rent value is shown without the required bracketed currency notation.</td>
         <td>After rent in the card, add "(CHF)" with CHF in uppercase inside brackets.</td>
@@ -491,7 +454,6 @@
           <img src="quicktime_bug_036.png" alt="Map view full details should match homepage functionality" />
         </td>
         <td>BUG-036</td>
-        <td>iOS</td>
         <td>High</td>
         <td>In map view after opening card full details, behavior/content is not aligned with homepage full-details behavior.</td>
         <td>
@@ -511,7 +473,6 @@
           <img src="quicktime_bug_037.png" alt="Top and bottom border should match flat filter page" />
         </td>
         <td>BUG-037</td>
-        <td>iOS</td>
         <td>Low</td>
         <td>Top and bottom soft border gradients on this screen are not visually consistent with the flat filter page style.</td>
         <td>Adjust top and bottom soft borders (gradients) to exactly match the gradient style used on the flat filter page.</td>
@@ -522,7 +483,6 @@
           <img src="quicktime_bug_038.png" alt="Apply filter shows applied result without user-selected values" />
         </td>
         <td>BUG-038</td>
-        <td>iOS</td>
         <td>Medium</td>
         <td>When user clicks Apply Filter without setting any value, UI still shows an applied-filter result like "X flats". Also, some values appear preselected by default (example: Permanent).</td>
         <td>There must be no preselected filter values by default. Specifically verify no preset values for: Permanent button, price range, ideal room size, roommate age preferences, and roommate preferences. Apply filter only when user explicitly sets values. If user applies with no selected value, show error message: "No filter selected" or "No filter value selected".</td>
@@ -533,7 +493,6 @@
           <img src="quicktime_bug_039.png" alt="Roommate filter sliders should match flat profile slider design and behavior" />
         </td>
         <td>BUG-039</td>
-        <td>iOS</td>
         <td>Medium</td>
         <td>Roommate filtering sliders are not using the same layout/behavior pattern as the flat-profile age-range slider.</td>
         <td>
@@ -551,7 +510,6 @@
           <img src="quicktime_bug_040.png" alt="Roommate improve your matches tab should match flat design" />
         </td>
         <td>BUG-040</td>
-        <td>iOS</td>
         <td>Medium</td>
         <td>The Roommate "Improve your matches" tab design/layout is inconsistent with the Flat version.</td>
         <td>Copy/adopt the exact same design layout and visual treatment from the Flat "Improve your matches" tab for the Roommate tab as well.</td>
@@ -560,7 +518,6 @@
       <tr>
         <td>General (no screenshot)</td>
         <td>BUG-041</td>
-        <td>iOS</td>
         <td>Low</td>
         <td>The top bar containing "Filter" and "Improve your matches" is too tall and consumes too much vertical space.</td>
         <td>Reduce the height of this bar so users can see more filtering options/content without extra scrolling.</td>
