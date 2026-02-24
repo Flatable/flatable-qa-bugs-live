@@ -590,6 +590,16 @@
         <td>Show snackbar with exact message: "Soft fitler applied successfully!"</td>
         <td>1) Open flat improve your matches filter. 2) Apply soft filter action. 3) Verify snackbar appears with the exact message text.</td>
       </tr>
+      <tr>
+        <td>
+          <img src="quicktime_bug_049.png" alt="Roommate edit profile studying-working toggle and field update inconsistency" />
+        </td>
+        <td>BUG-049</td>
+        <td>High</td>
+        <td>In Roommate Edit Profile, updating from Studying to Working works and reflects on flat homepage, but changing back from Working to Studying does not update reliably. Also verify Studying-related field edits persist correctly.</td>
+        <td>Age, Gender, Profession, and Studying/Working state changes should update consistently in both directions (Studying ↔ Working) and reflect correctly across related pages (including flat homepage). Studying-specific value edits should also persist after save.</td>
+        <td>1) Open Roommate Edit Profile. 2) Change Studying -> Working and save (confirm update). 3) Change Working -> Studying and save. 4) Verify status and related studying fields update and persist correctly everywhere.</td>
+      </tr>
     </tbody>
   </table>
 </body>
