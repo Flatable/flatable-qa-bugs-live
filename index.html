@@ -1035,12 +1035,12 @@
       </tr>
       <tr>
         <td>
-          <img src="quicktime_bug_087.png" alt="Job field shows employment label instead of actual profession or major" />
+          <img src="quicktime_bug_106.png" alt="Job field and profile details missing in saved liked rejected blocked lists" />
         </td>
         <td>BUG-088</td>
         <td>High</td>
         <td>In profile cards, the Job field is broken: in saved list it can show generic text ("employment") instead of the actual profession/major value; in liked list the profession/major value is not shown at all; and in blocked list the profession/major value is also completely missing.</td>
-        <td>Render the actual stored profession/major value in the Job field consistently across saved, liked, rejected, and blocked list views. Do not show generic placeholder text, and do not leave the value empty when profile data exists.</td>
+        <td>Render the actual stored profession/major value in the Job field consistently across saved, liked, rejected, and blocked list views. Age is missing. Prof/major is missing. If no value, show "Student" or "Working"</td>
         <td>1) Open saved list profile cards and verify Job field shows real profession/major value (not "employment"). 2) Open liked list and verify profession/major value is visible (not missing). 3) Open blocked list and verify profession/major value is visible (not missing). 4) Repeat in rejected list. 5) Confirm all list types consistently show the same correct data source.</td>
       </tr>
       <tr>
