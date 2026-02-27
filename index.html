@@ -62,9 +62,9 @@
         </td>
         <td>BUG-104</td>
         <td>High</td>
-        <td>This used to work before, but now it's not working anymore: flatmates are able to remove other members from flat, and in viewing flow flatmates are able to click "Set viewing dates".</td>
-        <td>Restore previous permission behavior: if a flatmate clicks "Set viewing dates", show error message "Only the admin of your flat is able to this action". Flatmates must not be able to remove other members from the flat.</td>
-        <td>1) Log in as flatmate (non-admin). 2) Open Manage Roommates and verify flatmate cannot remove other members (only self where applicable). 3) Go to viewing flow and tap "Set viewing dates". 4) Verify action is blocked and message shown: "Only the admin of your flat is able to this action".</td>
+        <td>Lea, who is a flatmate, is able to remove other flatmates and is also able to click the button "Set viewing date". Later, when she tries to save viewing dates, she gets the error message "wg not found". This appears related to a state issue after the flat account she was part of was reset.</td>
+        <td>Flatmate permissions must be enforced consistently: Lea (flatmate role) must not be able to remove other flatmates and must not be able to execute admin-only viewing-date actions. Post-reset state must not expose invalid actions that end in "wg not found".</td>
+        <td>1) Use Lea account as flatmate after flat-account reset scenario. 2) Open Manage Roommates and verify Lea cannot remove other flatmates. 3) Open viewing flow and verify "Set viewing date" is blocked for flatmate role. 4) Confirm no "wg not found" path is reachable from disallowed actions.</td>
       </tr>
       <tr>
         <td>General (no screenshot)</td>
