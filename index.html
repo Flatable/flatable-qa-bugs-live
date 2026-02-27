@@ -489,17 +489,17 @@
         <td>Adjust top and bottom soft borders (gradients) to exactly match the gradient style used on the flat filter page.</td>
         <td>1) Open this screen and flat filter page side-by-side. 2) Compare top and bottom soft gradient borders. 3) Verify gradient intensity, fade, and placement are identical.</td>
       </tr>
-      <tr>
+      <tr style="background: #f8d7da;">
         <td>
           <img src="quicktime_bug_038.png" alt="Apply filter shows applied result without user-selected values" />
         </td>
         <td>BUG-038</td>
         <td>Medium</td>
-        <td>When user clicks Apply Filter without setting any value, UI still shows an applied-filter result like "X flats". Also, some values appear preselected by default (example: Permanent).</td>
-        <td>There must be no preselected filter values by default. Specifically verify no preset values for: Permanent button, price range, ideal room size, roommate age preferences, and roommate preferences. Apply filter only when user explicitly sets values. If user applies with no selected value, show error message: "No filter selected" or "No filter value selected".</td>
-        <td>1) Open filter page fresh. 2) Verify no default selections in all filter groups. 3) Tap Apply Filter without selecting anything. 4) Verify error message is shown and no applied-filter state/count appears. 5) Select at least one value and verify apply behavior works normally.</td>
+        <td>Filter behavior is inconsistent/broken in multiple ways: applying with no values can still show applied results; default/preselected values appear unexpectedly; Reset Filter on mate filter does not fully clear address; after page switch/return address UI can look empty while hidden value is still saved; with address flow, Until button can become auto-selected after navigation; dates filter behavior is unreliable; roommate-number preferences can return "0 flats available" incorrectly; gender filter can return mixed-gender results even when only non-binary is selected.</td>
+        <td>Fix and validate end-to-end filter logic: no hidden/default selections, true reset behavior, consistent state after navigation, correct dates handling, and accurate matching for roommate-number + gender filters. Also increase price-range max to 5000. Specifically: 1) Reset Filter must clear address filter value (not just UI text). 2) No auto-select of Until after navigation. 3) Check dates filter thoroughly for correct persistence/application. 4) Price range max should be 5000. 5) Roommate-number filter must return correct matches. 6) Gender filter must strictly honor selected gender constraints (e.g., non-binary only).</td>
+        <td>1) Open mate filter and set address; apply; tap Reset Filter; verify address value is fully cleared internally and visually. 2) Enter address, switch pages, return; verify field and stored value stay consistent (no hidden stale value). 3) Repeat navigation and verify Until is not auto-selected unexpectedly. 4) Validate dates filter behavior across set/reset/navigation. 5) Check price-range max is 5000. 6) Test roommate-number preferences and verify results are not falsely "0 flats". 7) Set gender filter to non-binary only and verify returned flats satisfy that rule (no mixed/zero-non-binary mismatch).</td>
       </tr>
-      <tr>
+      <tr style="background: #d4edda;">
         <td>
           <img src="quicktime_bug_039_new.png" alt="Roommate filter sliders do not reset correctly and need consistent design" />
         </td>
