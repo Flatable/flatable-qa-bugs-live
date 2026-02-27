@@ -590,14 +590,14 @@
         <td>Review the full flat filter logic and verify each filter option individually. Ensure no hidden or unintended preselected values. If user applies without selecting filters, show validation error instead of applied results. Confirm matching data (especially age filter, plus amenities) returns expected results in next build, and verify any recent structure changes did not break age-filter mapping.</td>
         <td>1) Open flat filter page fresh. 2) Set known matching values (especially age range with existing matches). 3) Verify age filter returns correct results. 4) Check for unexpected default selections like "Until". 5) Apply with no values and verify validation error appears.</td>
       </tr>
-      <tr>
+      <tr style="background: #d4edda;">
         <td>
           <img src="quicktime_bug_044.png" alt="Transition between Filter and Improve your matches tabs should match roommate filter page" />
         </td>
         <td>BUG-047</td>
         <td>Low</td>
         <td>Transition behavior from Filter tab to Improve your matches tab is not consistent with the roommate filters page.</td>
-        <td>Make the tab transition animation/interaction the same as on the roommate filters page so behavior is consistent.</td>
+        <td>Make the tab transition animation/interaction the same as on the roommate filters page so behavior is consistent. Change is described in BUG-042.</td>
         <td>1) Open flat filter page. 2) Switch between Filter and Improve your matches tabs. 3) Compare with roommate filters page transition. 4) Verify transitions match.</td>
       </tr>
       <tr>
