@@ -365,8 +365,8 @@
         <td>BUG-028</td>
         <td>High</td>
         <td>If admin removes a flatmate from the flat, most pages still open (home/filter/casting/chat), but profile page shows the same WG-profile-not-found/dummy error state.</td>
-        <td>As soon as flatmate is removed from flat by admin, app should automatically switch to roommate profile/account flow and prevent broken flat-account state screens.</td>
-        <td>1) Admin removes flatmate from flat. 2) Flatmate opens app and navigates through pages. 3) Open profile page. 4) Verify no WG-profile-not-found error and user is auto-switched to roommate profile flow.</td>
+        <td>As soon as flatmate is removed from flat by admin, app should automatically switch to roommate profile/account flow and prevent broken flat-account state screens. If no roommate profile exists, log the user out.</td>
+        <td>1) Admin removes flatmate from flat. 2) Flatmate opens app and navigates through pages. 3) Open profile page. 4) If roommate profile exists, verify no WG-profile-not-found error and auto-switch to roommate flow. 5) If no roommate profile exists, verify user is logged out.</td>
       </tr>
       <tr>
         <td>
