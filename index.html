@@ -62,9 +62,9 @@
         </td>
         <td>BUG-104</td>
         <td>High</td>
-        <td>Permission behavior is inconsistent across devices for same user account ("Lea"). In Manage Roommates, Lea (flatmate role) can remove other roommates on one iOS device, but on another iOS device (also logged in as Lea) behavior is correct and Lea can only remove herself.</td>
-        <td>Enforce role permissions consistently across devices/sessions: flatmate accounts must only be able to remove themselves, never other roommates. Ensure device/session/cache state cannot elevate permissions.</td>
-        <td>1) Log in as flatmate account "Lea" on iOS device A and iOS device B. 2) Open Manage Roommates on both devices. 3) Compare available remove actions. 4) Verify Lea can only remove herself on all devices/sessions.</td>
+        <td>This used to work before, but now it's not working anymore: flatmates are able to remove other members from flat, and in viewing flow flatmates are able to click "Set viewing dates".</td>
+        <td>Restore previous permission behavior: if a flatmate clicks "Set viewing dates", show error message "Only the admin of your flat is able to this action". Flatmates must not be able to remove other members from the flat.</td>
+        <td>1) Log in as flatmate (non-admin). 2) Open Manage Roommates and verify flatmate cannot remove other members (only self where applicable). 3) Go to viewing flow and tap "Set viewing dates". 4) Verify action is blocked and message shown: "Only the admin of your flat is able to this action".</td>
       </tr>
       <tr>
         <td>General (no screenshot)</td>
