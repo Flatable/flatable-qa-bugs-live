@@ -855,9 +855,9 @@
         </td>
         <td>BUG-068</td>
         <td>Low</td>
-        <td>On a flat card in blocked list, the action button text is incorrect.</td>
-        <td>Change the blocked-list action button label to "Unblock".</td>
-        <td>1) Open blocked list. 2) View a blocked flat card. 3) Verify action button label is exactly "Unblock".</td>
+        <td>On a flat card in blocked list, the action button text is incorrect. Additionally, after blocking a user, user can suddenly no longer unblock, and the profile no longer appears in blocked list (regression: used to work before).</td>
+        <td>Change the blocked-list action button label to "Unblock". Ensure blocked profiles remain visible in blocked list and can be unblocked reliably after blocking.</td>
+        <td>1) Block a user/profile. 2) Open blocked list and verify blocked profile appears. 3) Verify action button label is exactly "Unblock". 4) Tap Unblock and verify profile is successfully unblocked. 5) Confirm flow works consistently (regression check).</td>
       </tr>
       <tr>
         <td>
