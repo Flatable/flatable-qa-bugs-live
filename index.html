@@ -58,6 +58,14 @@
     <tbody>
       <tr>
         <td>General (no screenshot)</td>
+        <td>BUG-100</td>
+        <td>High</td>
+        <td>Threshold/match gating is inconsistent: with threshold at 25% (1 WG account + 1 flat account), after only the flatmate liked the mate, the flat already appeared in mate matched row and chat was unlocked prematurely (while viewing page still correctly did not show the flat yet).</td>
+        <td>Match row visibility and chat unlock must follow the same threshold logic across all surfaces. If both required likes are needed, do not show in matched row and do not unlock chat until threshold is truly met.</td>
+        <td>1) Configure threshold to 25% with setup requiring WG account + flat account likes. 2) Apply only flatmate like (without full required set). 3) Verify matched row remains locked/hidden and chat stays locked. 4) Verify behavior aligns with viewing page state. 5) Only after full threshold is met, verify matched row + chat unlock.</td>
+      </tr>
+      <tr>
+        <td>General (no screenshot)</td>
         <td>BUG-098</td>
         <td>Low</td>
         <td>Birthyear text field shows a calendar icon, which is not needed for this input.</td>
