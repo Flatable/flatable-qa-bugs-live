@@ -471,18 +471,13 @@
         </td>
         <td>BUG-036</td>
         <td>High</td>
-        <td>In map view after opening card full details, behavior/content is not aligned with homepage full-details behavior.</td>
+        <td>In map view full-details, most parity items with homepage are already implemented. Remaining issues: it still shows flat title image icon instead of admin icon, and "(CHF)" next to price is still missing.</td>
         <td>
-          Ensure map-view full details has same functionality/format as homepage:
-          1) From date: remove unnecessary comma.
-          2) Until date: must be shown.
-          3) Rent: add "(CHF)" in uppercase brackets.
-          4) Square meters: render as proper superscript m².
-          5) Address: visible only on first image; hidden on subsequent images.
-          6) Use WG account user icon (not flat icon) where applicable.
-          7) Roommates count must be correct (not zero when data exists).
+          Keep implemented improvements, and finish remaining two points in map-view full details:
+          1) Replace flat title image icon with the admin icon.
+          2) Add "(CHF)" next to the price.
         </td>
-        <td>1) Open map view. 2) Tap card and open full details. 3) Compare with homepage full-details behavior. 4) Verify all listed parity points are fixed.</td>
+        <td>1) Open map view and open full details card. 2) Verify icon shown is admin icon (not flat title image icon). 3) Verify price includes "(CHF)".</td>
       </tr>
       <tr>
         <td>
