@@ -57,6 +57,16 @@
     </thead>
     <tbody>
       <tr>
+        <td>
+          <img src="quicktime_bug_104.png" alt="Lea flatmate account can remove other roommates on one iOS device" />
+        </td>
+        <td>BUG-104</td>
+        <td>High</td>
+        <td>Permission behavior is inconsistent across devices for same user account ("Lea"). In Manage Roommates, Lea (flatmate role) can remove other roommates on one iOS device, but on another iOS device (also logged in as Lea) behavior is correct and Lea can only remove herself.</td>
+        <td>Enforce role permissions consistently across devices/sessions: flatmate accounts must only be able to remove themselves, never other roommates. Ensure device/session/cache state cannot elevate permissions.</td>
+        <td>1) Log in as flatmate account "Lea" on iOS device A and iOS device B. 2) Open Manage Roommates on both devices. 3) Compare available remove actions. 4) Verify Lea can only remove herself on all devices/sessions.</td>
+      </tr>
+      <tr>
         <td>General (no screenshot)</td>
         <td>BUG-103</td>
         <td>Low</td>
